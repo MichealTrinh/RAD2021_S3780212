@@ -6,8 +6,7 @@
         <h1>Home</h1>
       <% end %>
     </div>
-    <%= stylesheet_link_tag "/app/assets/stylesheets/static_pages.scss" %>
-    <script src="/app/assets/functions.js"></script>
+
     <div class="toolBar">
       <button class="toolBarButtons" menuOverlay><%= image_tag("menu_icon.png", :alt => "Menu", :class => "toolBarImages") %></button>
       <div id="menuOverlay" class="hidden">
@@ -16,16 +15,20 @@
           <div class="menuSectionIcon-container">
             <%= image_tag("stack_icon.png", :class => "menuSectionIcon") %>
           </div>
+
           <div class="menuSectionList-container">
             <h2>shop</h2>
-            <ul class="menuSectionList">
-              <li>Men</li>
-              <li>Women</li>
-              <li>Kids</li>
-              <li>New-ins</li>
-            </ul>
+            <nav>
+              <ul class="menuSectionList">
+                <li>Men</li>
+                <li>Women</li>
+                <li>Kids</li>
+                <li>New-ins</li>
+              </ul>
+            </nav>
           </div>
         </div>
+
         <div class="menuSection">
           <div class="menuSectionIcon-container">
             <%= image_tag("heart_icon.png", :class => "menuSectionIcon") %>
@@ -34,18 +37,26 @@
             <h2>Saved</h2>
           </div>
         </div>
-        <nav class="navbar">
-          <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Home", root_path %></li>
-            <li><%= link_to "About", static_pages_about_url %></li>
-          </ul>
-        </nav>
+
+        <div class="menuSection">
+          <nav class="menuNavbar">
+            <ul class="nav navbar-nav navbar-right">
+              <li><div class="menuSectionIcon-container"><%= image_tag("home_icon.png", :class => "menuSectionIcon") %></div><%= link_to "Home", root_path %></li>
+              <li><div class="menuSectionIcon-container"><%= image_tag("about_icon.png", :class => "menuSectionIcon") %></div><%= link_to "About", static_pages_about_url %></li>
+              <li><div class="menuSectionIcon-container"><%= image_tag("help_icon.png", :class => "menuSectionIcon") %></div><%= link_to "Help & Support", static_pages_help_url %></li>
+            </ul>
+          </nav>
+        </div>
+
       </div>
 
       <div class="pageTitle">
 
         <% if params[:action] == 'about' %>
           <h2>About</h2>
+        <% end %>
+        <% if params[:action] == 'help' %>
+          <h2>Help & Support</h2>
         <% end %>
       </div>
 
