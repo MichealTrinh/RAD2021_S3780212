@@ -13,3 +13,175 @@
  *= require_tree .
  *= require_self
  */
+
+html {
+  height: 100%;
+}
+
+header {
+  top: 0;
+}
+
+body {
+  background-color: #f7f7f7;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+footer {
+  bottom: 0;
+}
+
+
+/*header*/
+
+.upperHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 2em;
+}
+
+.head h1 {
+  margin: 0;
+}
+
+.navbar {
+  position: relative;
+  z-index: 4;
+}
+
+.navbar-nav {
+  list-style: none;
+  padding: 0;
+}
+
+.toolBar {
+ position: relative;
+ background-color: #f7f7f7;
+ display: flex;
+ justify-content: space-between;
+ width: 100%;
+ height: 1.5em;
+ margin-left: 0.5em;
+ border: 0;
+}
+
+.pageTitle {
+ background-color: #f7f7f7;
+ height: fit-content;
+ margin: 0;
+ padding: 0;
+}
+
+.pageTitle, h2 {
+  margin: 0;
+  padding: 0;
+}
+
+.hidden {
+  display: none
+}
+
+.overlay {
+  position: fixed;
+  background-color: #F0F0F0;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  padding: 8px;
+  z-index: 3;
+  top: 0;
+  left: 0;
+}
+
+.toolBarButtons {
+  background-color: #f7f7f7;
+  width: 1.8em;
+  height: inherit;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.toolBarImages {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  top: 0;
+  left: 0;
+}
+
+.searchBox {
+  width: 80%;
+  margin-left: 8%;
+  margin-right: 8%;
+  margin-top: 15%;
+  padding: 1% 2%;
+}
+
+.cartSearchGroup {
+  display: flex;
+  justify-content: space-between;
+  width: 4em;
+  margin-right: 1em;
+}
+
+.closeOverlay {
+  position: relative;
+  background-color: #F0F0F0;
+  width: 1.8em;
+  height: 1.8em;
+  padding: 0;
+  margin: 0 0.5em;
+  border: 0;
+  top: 2.4em;
+}
+
+
+.menuSection {
+  position: relative;
+  height: fit-content;
+  display: flex;
+  width: 100%;
+}
+
+.menuSectionIcon-container {
+  position: relative;
+  width: 1.8em;
+  height: 100%;
+  margin: 0 0.5em;
+}
+
+.menuSectionIcon {
+  width: 100%;
+  height: 1.8em;
+}
+
+.menuSectionList-container {
+  position: relative;
+  border-bottom-style: solid;
+  border-color: lightgray;
+  height: fit-content;
+  width: inherit;
+  margin-left: 2em;
+}
+
+.menuSectionList {
+  font-size: 2em;
+  list-style: none;
+  padding: 0;
+}
+
+/*body*/
+
+.body {
+  margin: 2em 0;
+}
+
+/*footer*/
