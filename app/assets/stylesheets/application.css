@@ -165,8 +165,6 @@ footer {
 
 .menuSectionList-container {
   position: relative;
-  border-bottom-style: solid;
-  border-color: lightgray;
   height: fit-content;
   width: inherit;
   margin-left: 2em;
@@ -175,7 +173,14 @@ footer {
 .menuSectionList {
   font-size: 2em;
   list-style: none;
+  border-bottom-style: solid;
+  border-color: lightgray;
   padding: 0;
+}
+
+.menuSectionList li {
+  color: gray;
+  padding-bottom: 0.2em;
 }
 
 /*body*/
