@@ -1,7 +1,11 @@
 console.log("hello");
 
 function save_product(name) {
-  window.localStorage.setItem(name, name);
+  if (window.localStorage.getItem(name) != null) {
+    window.localStorage.removeItem(name);
+  } else {
+    window.localStorage.setItem(name, name);
+  }
   for (var i = 0; i < window.localStorage.length; i++) {
     console.log(i.toString() + " " + window.localStorage.getItem(window.localStorage.key(i)));
   }
