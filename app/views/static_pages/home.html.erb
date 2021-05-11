@@ -1,3 +1,12 @@
+<% @product = getRandomProduct %>
+
 <div class="body">
-  Content
+  <div class="randomProduct-container">
+    <div class="randomProduct-details">
+      <h1><%= @product.name %></h1>
+      <p><%= @product.description %></p>
+      <p><%= "$" + price_dollars(@product.price).to_s %></p>
+    </div>
+    <button class="saveButton"><%= image_tag("plus_icon.png", :alt => "Save", :class => "saveButton-icon") %></button>
+  </div>
 </div>
