@@ -44,3 +44,21 @@ window.addEventListener("load", () => {
     });
   });
 });
+
+
+function convertToSymbols(mystring) {
+  return mystring.replace(/&amp;/g, "&").replace(/&gt;/g, ">").replace(/&lt;/g, "<").replace(/&quot;/g, '"').replace(/&#39;/g, "'");
+}
+
+window.checkSavedList = function(name) {
+  console.log("check");
+  for (var i = 0; i < window.localStorage.length; i++) {
+    console.log(i.toString() + " " + window.localStorage.getItem(window.localStorage.key(i)));
+  }
+  if (window.localStorage.getItem(convertToSymbols(name)) != null) {
+    console.log("true");
+    return true;
+  }
+  console.log("false");
+  return false;
+}

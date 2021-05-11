@@ -8,6 +8,7 @@
   width: 100vw;
   height: 75vw;
   left: -8px;
+  margin-top: 5em;
 }
 
 .randomProduct-details {
@@ -49,4 +50,15 @@
 .saveButton-icon {
   width: 2em;
   height: 2em;
+}
+
+.saveLabel {
+  position: absolute;
+  background-color: lightgreen;
+  border: 3px;
+  border-style: solid;
+  border-color: darkslategray;
+  padding: 2px 4px;
+  top: 0;
+  left: 0;
 }

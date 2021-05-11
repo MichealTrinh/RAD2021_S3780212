@@ -2,6 +2,11 @@
 
 <div class="body">
   <div class="randomProduct-container">
+    <script>
+      if(checkSavedList('<%= @product.name %>')) {
+        document.write("<label class='saveLabel'>SAVED</label>");
+      }
+    </script>
     <div class="randomProduct-details">
       <h1><%= @product.name %></h1>
       <p><%= @product.description %></p>
