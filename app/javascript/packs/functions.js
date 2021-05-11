@@ -1,57 +1,42 @@
-function menuOverlay() {
-  var element = document.getElementById("menuOverlay")
-  element.classList.toggle("hidden");
-  element.classList.toggle("overlay");
+console.log("hello");
+
+function save_product(name) {
+  window.localStorage.setItem(name, name);
+  for (var i = 0; i < window.localStorage.length; i++) {
+    console.log(i.toString() + " " + window.localStorage.getItem(window.localStorage.key(i)));
+  }
+  window.location.href = ""
 }
 
-function cartOverlay() {
-  var element = document.getElementById("cartOverlay")
-  element.classList.toggle("hidden");
-  element.classList.toggle("overlay");
-}
-
-function searchOverlay() {
-  var element = document.getElementById("searchOverlay")
-  element.classList.toggle("hidden");
-  element.classList.toggle("overlay");
-}
-
-function createListeners() {
-  window.addEventListener("load", () => {
-    const links = document.querySelectorAll(
-      "button[menuOverlay]"
-    );
-    links.forEach((element) => {
-      element.addEventListener("click", (event) => {
-        event.preventDefault();
-        menuOverlay();
-      });
+window.addEventListener("load", () => {
+  const links = document.querySelectorAll(
+    "button[save_product]"
+  );
+  console.log("listener");
+  links.forEach((element) => {
+    element.addEventListener("click", (event) => {
+      event.preventDefault();
+      var name = element.value;
+      save_product(name);
     });
   });
+});
 
-  window.addEventListener("load", () => {
-    const links = document.querySelectorAll(
-      "button[cartOverlay]"
-    );
-    links.forEach((element) => {
-      element.addEventListener("click", (event) => {
-        event.preventDefault();
-        cartOverlay();
-      });
-    });
-  });
 
-  window.addEventListener("load", () => {
-    const links = document.querySelectorAll(
-      "button[searchOverlay]"
-    );
-    links.forEach((element) => {
-      element.addEventListener("click", (event) => {
-        event.preventDefault();
-        searchOverlay();
-      });
-    });
-  });
+function clear_storage() {
+  window.localStorage.clear();
 }
 
-document.ready(createListeners());
+
+window.addEventListener("load", () => {
+  const links = document.querySelectorAll(
+    "button[clear_storage]"
+  );
+  console.log("listener");
+  links.forEach((element) => {
+    element.addEventListener("click", (event) => {
+      event.preventDefault();
+      clear_storage();
+    });
+  });
+});

@@ -6,7 +6,7 @@
   position: relative;
   background-image: linear-gradient( #949494, darkgray, #696969);
   width: 100vw;
-  height: 100vw;
+  height: 75vw;
   left: -8px;
 }
 
@@ -21,6 +21,20 @@
 
 .randomProduct-details p {
   margin: 8px 0;
+}
+
+.saveOverlay {
+  position: absolute;
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 }
 
 .saveButton {
