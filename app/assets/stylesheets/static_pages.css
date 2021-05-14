@@ -1,17 +1,11 @@
-// Place all the styles related to the StaticPages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
-
-
 /*Random Product Section*/
 .randomProduct-container {
   position: relative;
-  background-image: linear-gradient( #949494, darkgray, #696969);
+  background-image: linear-gradient(#949494, darkgray, #696969);
   width: 100vw;
   height: 75vw;
   left: -8px;
-  margin-top: 5em;
-}
+  margin-top: 5em; }
 
 .randomProduct-details {
   position: absolute;
@@ -19,12 +13,10 @@
   width: fit-content;
   height: fit-content;
   bottom: 4em;
-  left: 1em;
-}
+  left: 1em; }
 
 .randomProduct-details p {
-  margin: 8px 0;
-}
+  margin: 8px 0; }
 
 .randomProduct-saveOverlay {
   position: absolute;
@@ -37,8 +29,7 @@
   width: 100%;
   height: 100%;
   top: 0;
-  left: 0;
-}
+  left: 0; }
 
 .saveButton {
   position: absolute;
@@ -46,15 +37,13 @@
   width: 4em;
   height: 4em;
   bottom: 1em;
-  right: 1em;
-}
+  right: 1em; }
 
 .saveButton-icon {
   width: 2em;
-  height: 2em;
-}
+  height: 2em; }
 
-.randomProduct-saveLabel {
+.saveLabel {
   position: absolute;
   background-color: lightgreen;
   border: 3px;
@@ -62,8 +51,7 @@
   border-color: darkslategray;
   padding: 2px 4px;
   top: 0;
-  left: 0;
-}
+  left: 0; }
 
 /*Popular Products Section*/
 .popularProducts-section {
@@ -72,69 +60,34 @@
   border-bottom-style: solid;
   border-bottom-width: 2px;
   width: 100%;
-  height: fit-content;
-}
+  height: fit-content; }
 
 .bannerScroll {
   display: inline-block;
   overflow: auto;
   width: 100%;
-  white-space: nowrap;
-}
+  white-space: nowrap; }
 
 .popularProducts-item {
-  position: relative;
-   display: inline-grid;
-   text-align: center;
-   width: 8em;
-   height: 100%;
-   margin: 0 0 0 1em;
-}
+  display: inline-grid;
+  text-align: center;
+  width: 8em;
+  height: 100%;
+  margin: 0 0 0 1em; }
 
 .popularProducts-img {
   background-color: black;
   text-align: center;
   width: 100%;
   height: 12em;
-  margin-bottom: 1em;
-}
+  margin-bottom: 1em; }
 
 .popularProducts-description {
   text-align: center;
-  height: fit-content;
-}
+  height: fit-content; }
 
 .popularProducts-description p {
   white-space: pre-wrap;
-  margin: 0;
-}
+  margin: 0; }
 
-.popularProducts-price {
-  color: gray;
-  font-size: small;
-}
-
-.popularProducts-saveOverlay {
-  position: absolute;
-  background-color: Transparent;
-  background-repeat: no-repeat;
-  border: none;
-  cursor: pointer;
-  overflow: hidden;
-  outline: none;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  padding: 0;
-}
-
-.popularProducts-saveLabel {
-  position: absolute;
-  background-color: lightgreen;
-  border: 3px;
-  border-style: solid;
-  border-color: darkslategray;
-  padding: 2px 4px;
-  left: 0;
-}
+/*# sourceMappingURL=static_pages.css.map */

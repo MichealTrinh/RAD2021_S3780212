@@ -4,7 +4,7 @@
   <div class="randomProduct-container">
     <script>
       if(checkSavedList('<%= @product.name %>')) {
-        document.write("<label class='saveLabel'>SAVED</label>");
+        document.write("<label class='randomProduct-saveLabel'>SAVED</label>");
       }
     </script>
     <div class="randomProduct-details">
@@ -12,8 +12,34 @@
       <p><%= @product.description %></p>
       <p><%= "$" + price_dollars(@product.price).to_s %></p>
     </div>
-    <button class="saveOverlay" save_product value="<%= @product.name %>"></button>
+    <button class="randomProduct-saveOverlay" save_product value="<%= @product.name %>"></button>
     <button class="saveButton" save_product value="<%= @product.name %>"><%= image_tag("plus_icon.png", :alt => "Save", :class => "saveButton-icon") %></button>
   </div>
   <button clear_storage>clear storage</button>
+
+  <div class="popularProducts-section">
+    <h1>Popular</h1>
+    <div class="bannerScroll">
+      <% getPopularProducts.each do |p| %>
+        <div class="popularProducts-item">
+          <div class="popularProducts-img">
+            <button class="popularProducts-saveOverlay" save_product value="<%= p.name %>"></button>
+            <script>
+              if(checkSavedList('<%= p.name %>')) {
+                document.write("<label class='popularProducts-saveLabel'>SAVED</label>");
+              }
+            </script>
+
+          </div>
+
+          <div class="popularProducts-description">
+            <tr>
+              <td><p class="popularProducts-name"><%=p.name%></p></td>
+              <td><p class="popularProducts-price">$<%=price_dollars(p.price)%></p></td
+            </tr>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>

@@ -56,9 +56,7 @@ window.checkSavedList = function(name) {
     console.log(i.toString() + " " + window.localStorage.getItem(window.localStorage.key(i)));
   }
   if (window.localStorage.getItem(convertToSymbols(name)) != null) {
-    console.log("true");
     return true;
   }
-  console.log("false");
   return false;
 }
