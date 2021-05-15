@@ -1,0 +1,21 @@
+<div class="body">
+  <% getAllProducts.each do |p| %>
+    <div class="collectionProducts-item">
+      <div class="collectionProducts-img">
+        <button class="collectionProducts-saveOverlay" save_product value="<%= p.name %>"></button>
+        <script>
+          if(checkSavedList('<%= p.name %>')) {
+            document.write("<label class='collectionProducts-saveLabel'>SAVED</label>");
+          }
+        </script>
+      </div>
+
+      <div class="collectionProducts-description">
+        <tr>
+          <td><p class="collectionProducts-name"><%=p.name%></p></td>
+          <td><p class="collectionProducts-price">$<%=price_dollars(p.price)%></p></td
+        </tr>
+      </div>
+    </div>
+  <% end %>
+</div>

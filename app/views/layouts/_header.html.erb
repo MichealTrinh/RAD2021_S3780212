@@ -57,10 +57,14 @@
         <% if params[:action] == 'help' %>
           <h2>Help & Support</h2>
         <% end %>
+        <% if params[:action] == 'show' %>
+          <h2><%= Collection.find(params[:id]).name %></h2>
+        <% end %>
+
       </div>
 
       <div class="cartSearchGroup">
-        <button class="toolBarButtons" cartOverlay><%= image_tag("bag_icon.png", :alt => "Cart", :class => "toolBarImages") %></button>
+        <button class="toolBarButtons" style="margin-right: 1em;" cartOverlay><%= image_tag("bag_icon.png", :alt => "Cart", :class => "toolBarImages") %></button>
         <div id="cartOverlay" class="hidden">
           <button class="closeOverlay" cartOverlay><%= image_tag("close_icon.png", :alt => "Menu", :class => "toolBarImages") %></button>
         </div>

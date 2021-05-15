@@ -1,0 +1,60 @@
+// Place all the styles related to the Collections controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.collectionProducts-item {
+  position: relative;
+   display: inline-grid;
+   text-align: center;
+   width: 8em;
+   height: 100%;
+   margin: 0 0 1em 1em;
+}
+
+.collectionProducts-img {
+  background-color: black;
+  text-align: center;
+  width: 100%;
+  height: 12em;
+  margin-bottom: 1em;
+}
+
+.collectionProducts-description {
+  text-align: center;
+  height: fit-content;
+}
+
+.collectionProducts-description p {
+  white-space: pre-wrap;
+  margin: 0;
+}
+
+.collectionProducts-price {
+  color: gray;
+  font-size: small;
+}
+
+.collectionProducts-saveOverlay {
+  position: absolute;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  padding: 0;
+}
+
+.collectionProducts-saveLabel {
+  position: absolute;
+  background-color: lightgreen;
+  border: 3px;
+  border-style: solid;
+  border-color: darkslategray;
+  padding: 2px 4px;
+  left: 0;
+}

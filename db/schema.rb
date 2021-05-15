@@ -10,10 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_11_044053) do
+ActiveRecord::Schema.define(version: 2021_05_15_134058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "Collections_Products", id: false, force: :cascade do |t|
+    t.bigint "Collection_id", null: false
+    t.bigint "Product_id", null: false
+  end
+
+  create_table "collections", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "collections_products", force: :cascade do |t|
+    t.integer "collection_id", null: false
+    t.integer "product_id", null: false
+  end
 
   create_table "products", force: :cascade do |t|
     t.string "name"
@@ -24,7 +40,6 @@ ActiveRecord::Schema.define(version: 2021_05_11_044053) do
     t.integer "timesViewed"
     t.integer "timesSaved"
     t.integer "timesPurchased"
-    t.string "collection"
   end
 
 end

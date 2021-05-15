@@ -29,7 +29,6 @@
                 document.write("<label class='popularProducts-saveLabel'>SAVED</label>");
               }
             </script>
-
           </div>
 
           <div class="popularProducts-description">
@@ -42,4 +41,25 @@
       <% end %>
     </div>
   </div>
+
+  <div class="collections-section">
+    <div class="collections-header">
+      <h1>Collection</h1>
+      <a class="seeAll-button">see all +</a>
+    </div>
+    <div class="collections-gallery">
+      <% Collection.first(4).each do |c| %>
+        <form class="collections-item" action="collections/<%= c.id %>" method="get">
+          <button class="collections-button">
+            <h3><%= c.name %></h3>
+            <p><%= c.products.count %> items</p>
+          </button>
+        </form>
+
+      <% end %>
+    </div>
+  </div>
+
+
+
 </div>

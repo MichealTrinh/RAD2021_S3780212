@@ -9,8 +9,7 @@
   background-image: linear-gradient( #949494, darkgray, #696969);
   width: 100vw;
   height: 75vw;
-  left: -8px;
-  margin-top: 5em;
+  left: -1em;
 }
 
 .randomProduct-details {
@@ -88,7 +87,7 @@
    text-align: center;
    width: 8em;
    height: 100%;
-   margin: 0 0 0 1em;
+   margin: 0 0 1em 1em;
 }
 
 .popularProducts-img {
@@ -137,4 +136,54 @@
   border-color: darkslategray;
   padding: 2px 4px;
   left: 0;
+}
+
+/*Collections Section*/
+.collections-section {
+  position: relative;
+  margin: 1em 0;
+}
+
+.collections-header {
+  position: relarive;
+  display: flex;
+}
+
+.collections-header a {
+  position: absolute;
+  right: 0;
+}
+
+.collections-header a:hover {
+  color: none;
+}
+
+.collections-header a:active {
+  color: none;
+}
+
+.collections-header a:visited {
+  color: none;
+}
+
+.collections-gallery {
+  position: relative;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+  grid-gap: 2em;
+}
+
+.collections-item {
+  border: 1px solid #ccc;
+  float: left;
+  width: 45%;
+}
+.collections-item p {
+  font-size: small;
+  color: gray;
+}
+
+.collections-button {
+  width: 100%;
 }
