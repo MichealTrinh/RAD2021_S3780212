@@ -59,6 +59,12 @@
     </div>
   </div>
 
-
-
+  <div class="subscribe-section">
+    <h1>Newsletter</h1>
+    <p>signup with our newsletter...</p>
+    <%= form_for :email, :html => {:class => 'subscribe-form'}  do |f| %>
+      <%= f.text_field :email, :placeholder => "Enter your Email" %>
+      <button class="subscribe-submit"><%= image_tag("send_icon.png", :alt => "Send", :class => "subscribe-icon") %></button>
+    <% end %>
+  </div>
 </div>

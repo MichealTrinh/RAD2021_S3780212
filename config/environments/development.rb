@@ -75,4 +75,7 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
 
   config.hosts << "321287e21986407e9dcd90e5394da748.vfs.cloud9.ap-southeast-2.amazonaws.com"
+
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
 end
