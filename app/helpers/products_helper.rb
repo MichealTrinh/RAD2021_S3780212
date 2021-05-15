@@ -21,4 +21,13 @@ module ProductsHelper
     end
     @products.sort_by{|p| p.popularityScore}.reverse!
   end
+
+  def updateNewIns
+    Collection.find(4).products.each do |p|
+      @difference = ((((p.created_at - Time.now) / 60) / 60) / 24) * -1
+      if (@difference > 90)
+        p.collection.delete(Collection.find(4))
+      end
+    end
+  end
 end

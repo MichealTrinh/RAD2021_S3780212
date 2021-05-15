@@ -17,13 +17,13 @@ Product.create(:name => "Skull's Sweater", :description => "A sweater from a huy
 Product.create(:name => "Swag Sweater", :description => "A very swag sweater", :price => 420, :timesViewed => 0, :timesSaved => 1, :timesPurchased => 1)
 
 Product.find(1).collection << Collection.find(2)
-Product.find(1).collection << Collection.find(4)
+# Product.find(1).collection << Collection.find(4)
 Product.find(2).collection << Collection.find(1)
-Product.find(2).collection << Collection.find(4)
+# Product.find(2).collection << Collection.find(4)
 Product.find(3).collection << Collection.find(3)
-Product.find(3).collection << Collection.find(4)
+# Product.find(3).collection << Collection.find(4)
 Product.find(4).collection << Collection.find(3)
-Product.find(4).collection << Collection.find(4)
+# Product.find(4).collection << Collection.find(4)
 
 # Product.create(:name => "Winter Vibes", :description => "Cold & Brilliant start", :price => 2999, :timesViewed => 0, :timesSaved => 0, :timesPurchased => 0, :collection_id => 2)
 # Product.create(:name => "Black Knit Sweatshirt", :description => "A black sweatshirt", :price => 12999, :timesViewed => 0, :timesSaved => 1, :timesPurchased => 0, :collection_id => 1)
