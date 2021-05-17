@@ -7,12 +7,12 @@
     </div>
 
     <div class="toolBar">
-      <button class="toolBarButtons" menuOverlay><%= image_tag("menu_icon.png", :alt => "Menu", :class => "toolBarImages") %></button>
+      <button class="toolBarButtons" menuOverlay><%= image_tag("icons/menu_icon.png", :alt => "Menu", :class => "toolBarImages") %></button>
       <div id="menuOverlay" class="hidden">
-        <button class="closeOverlay" menuOverlay><%= image_tag("close_icon.png", :alt => "Close Menu", :class => "toolBarImages") %></button>
+        <button class="closeOverlay" menuOverlay><%= image_tag("icons/close_icon.png", :alt => "Close Menu", :class => "toolBarImages") %></button>
         <div class="menuSection">
           <div class="menuSectionIcon-container">
-            <%= image_tag("stack_icon.png", :class => "menuSectionIcon") %>
+            <%= image_tag("icons/stack_icon.png", :class => "menuSectionIcon") %>
           </div>
 
           <div class="menuSectionList-container">
@@ -30,7 +30,7 @@
 
         <div class="menuSection">
           <div class="menuSectionIcon-container">
-            <%= image_tag("heart_icon.png", :class => "menuSectionIcon") %>
+            <%= image_tag("icons/heart_icon.png", :class => "menuSectionIcon") %>
           </div>
           <div class="menuSectionList-container">
             <h2>Saved</h2>
@@ -58,9 +58,9 @@
         <div class="menuSection">
           <nav class="menuNavbar">
             <ul class="nav navbar-nav navbar-right">
-              <li><div class="menuSectionIcon-container"><%= image_tag("home_icon.png", :class => "menuSectionIcon") %></div><%= link_to "Home", root_path %></li>
-              <li><div class="menuSectionIcon-container"><%= image_tag("about_icon.png", :class => "menuSectionIcon") %></div><%= link_to "About", static_pages_about_url %></li>
-              <li><div class="menuSectionIcon-container"><%= image_tag("help_icon.png", :class => "menuSectionIcon") %></div><%= link_to "Help & Support", static_pages_help_url %></li>
+              <li><div class="menuSectionIcon-container"><%= image_tag("icons/home_icon.png", :class => "menuSectionIcon") %></div><%= link_to "Home", root_path %></li>
+              <li><div class="menuSectionIcon-container"><%= image_tag("icons/about_icon.png", :class => "menuSectionIcon") %></div><%= link_to "About", static_pages_about_url %></li>
+              <li><div class="menuSectionIcon-container"><%= image_tag("icons/help_icon.png", :class => "menuSectionIcon") %></div><%= link_to "Help & Support", static_pages_help_url %></li>
             </ul>
           </nav>
         </div>
@@ -85,14 +85,14 @@
       </div>
 
       <div class="cartSearchGroup">
-        <button class="toolBarButtons" style="margin-right: 1em;" cartOverlay><%= image_tag("bag_icon.png", :alt => "Cart", :class => "toolBarImages") %></button>
+        <button class="toolBarButtons" style="margin-right: 1em;" cartOverlay><%= image_tag("icons/bag_icon.png", :alt => "Cart", :class => "toolBarImages") %></button>
         <div id="cartOverlay" class="hidden">
-          <button class="closeOverlay" cartOverlay><%= image_tag("close_icon.png", :alt => "Menu", :class => "toolBarImages") %></button>
+          <button class="closeOverlay" cartOverlay><%= image_tag("icons/close_icon.png", :alt => "Menu", :class => "toolBarImages") %></button>
         </div>
 
-        <button class="toolBarButtons" searchOverlay><%= image_tag("search_icon.png", :alt => "Search", :class => "toolBarImages") %></button>
+        <button class="toolBarButtons" searchOverlay><%= image_tag("icons/search_icon.png", :alt => "Search", :class => "toolBarImages") %></button>
         <div id="searchOverlay" class="hidden">
-          <button class="closeOverlay" searchOverlay><%= image_tag("close_icon.png", :alt => "Menu", :class => "toolBarImages") %></button>
+          <button class="closeOverlay" searchOverlay><%= image_tag("icons/close_icon.png", :alt => "Menu", :class => "toolBarImages") %></button>
           <input class="searchBox" type="text" placeholder="Search">
         </div>
       </div>

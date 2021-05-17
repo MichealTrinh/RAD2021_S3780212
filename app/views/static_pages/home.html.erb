@@ -14,7 +14,7 @@
       <p><%= "$" + price_dollars(@product.price).to_s %></p>
     </div>
     <button class="randomProduct-saveOverlay" save_product value="<%= @product.id.to_s + ' ' + @product.name %>"></button>
-    <button class="saveButton" save_product value="<%= @product.name %>"><%= image_tag("plus_icon.png", :alt => "Save", :class => "saveButton-icon") %></button>
+    <button class="saveButton" save_product value="<%= @product.name %>"><%= image_tag("icons/plus_icon.png", :alt => "Save", :class => "saveButton-icon") %></button>
   </div>
   <button clear_storage>clear storage</button>
 
@@ -69,7 +69,7 @@
     <p>signup with our newsletter...</p>
     <%= form_for :email, :html => {:class => 'subscribe-form'}  do |f| %>
       <%= f.text_field :email, :placeholder => "Enter your Email" %>
-      <button class="subscribe-submit"><%= image_tag("send_icon.png", :alt => "Send", :class => "subscribe-icon") %></button>
+      <button class="subscribe-submit"><%= image_tag("icons/send_icon.png", :alt => "Send", :class => "subscribe-icon") %></button>
     <% end %>
   </div>
 </div>

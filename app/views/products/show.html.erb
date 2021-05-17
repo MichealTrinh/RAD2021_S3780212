@@ -1,7 +1,9 @@
 <% @product = Product.find(params[:id])  %>
 <div class="body">
   <div class="imageDisplay-section">
-
+    <% getAllImagesForProduct.each do |i| %>
+      <%= image_tag "product_images/#{i.name}", class: "imageDisplay-image" %>
+    <% end %>
   </div>
 
   <div class="productDetails-section">
