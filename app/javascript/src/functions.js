@@ -51,3 +51,10 @@ window.checkSavedList = function(name) {
   }
   return false;
 }
+
+window.displaySaveLabel = function(id, className) {
+  const element = document.getElementById(id)
+  element.innerHTML = "SAVED";
+  element.classList.toggle("hidden");
+  element.classList.toggle(className);
+}

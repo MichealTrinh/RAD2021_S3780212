@@ -3,9 +3,10 @@
     <div class="collectionProducts-item">
       <div class="collectionProducts-img">
         <button class="collectionProducts-saveOverlay" save_product value="<%= p.name %>"></button>
+        <label id="<%= p.id %><%=params[:id]%>CP" class='hidden'></label>
         <script>
           if(checkSavedList('<%= p.name %>')) {
-            document.write("<label class='collectionProducts-saveLabel'>SAVED</label>");
+            displaySaveLabel("<%= p.id %><%=params[:id]%>CP", "collectionProducts-saveLabel")
           }
         </script>
       </div>

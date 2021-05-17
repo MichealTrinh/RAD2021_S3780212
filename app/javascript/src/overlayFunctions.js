@@ -1,23 +1,24 @@
+import $ from 'jquery';
+
 function menuOverlay() {
-  var element = document.getElementById("menuOverlay")
+  var element = document.getElementById("menuOverlay");
   element.classList.toggle("hidden");
   element.classList.toggle("overlay");
 }
 
 function cartOverlay() {
-  var element = document.getElementById("cartOverlay")
+  var element = document.getElementById("cartOverlay");
   element.classList.toggle("hidden");
   element.classList.toggle("overlay");
 }
 
 function searchOverlay() {
-  var element = document.getElementById("searchOverlay")
+  var element = document.getElementById("searchOverlay");
   element.classList.toggle("hidden");
   element.classList.toggle("overlay");
 }
-
-function createListeners() {
-  window.addEventListener("load", () => {
+function menuButtonListener() {
+window.addEventListener("load", () => {
     const links = document.querySelectorAll(
       "button[menuOverlay]"
     );
@@ -28,7 +29,8 @@ function createListeners() {
       });
     });
   });
-
+}
+function cartButtonListener() {
   window.addEventListener("load", () => {
     const links = document.querySelectorAll(
       "button[cartOverlay]"
@@ -40,7 +42,8 @@ function createListeners() {
       });
     });
   });
-
+}
+function searchButtonListener() {
   window.addEventListener("load", () => {
     const links = document.querySelectorAll(
       "button[searchOverlay]"
@@ -54,4 +57,11 @@ function createListeners() {
   });
 }
 
-window.onload(createListeners());
+
+$(document).ready(menuButtonListener());
+$(document).ready(cartButtonListener());
+$(document).ready(searchButtonListener());
+
+window.randomProductSaveLabel = function() {
+  document.write("<label class='randomProduct-saveLabel'>SAVED</label>");
+};

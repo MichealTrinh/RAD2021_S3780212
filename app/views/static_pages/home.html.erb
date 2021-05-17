@@ -2,9 +2,10 @@
 <% updateNewIns %>
 <div class="body">
   <div class="randomProduct-container">
+    <label id="<%= @product.id %>RP" class='hidden'></label>
     <script>
       if(checkSavedList('<%= @product.name %>')) {
-        document.write("<label class='randomProduct-saveLabel'>SAVED</label>");
+        displaySaveLabel("<%= @product.id %>RP", "randomProduct-saveLabel")
       }
     </script>
     <div class="randomProduct-details">
@@ -15,18 +16,22 @@
     <button class="randomProduct-saveOverlay" save_product value="<%= @product.name %>"></button>
     <button class="saveButton" save_product value="<%= @product.name %>"><%= image_tag("plus_icon.png", :alt => "Save", :class => "saveButton-icon") %></button>
   </div>
-  <button clear_storage>clear storage</button>
+  <!--<button clear_storage>clear storage</button>-->
 
   <div class="popularProducts-section">
-    <h1>Popular</h1>
+    <div class="section-header">
+      <h1>Popular</h1>
+      <a class="seeAll-button" href="products/popular">see all +</a>
+    </div>
     <div class="bannerScroll">
-      <% getPopularProducts.each do |p| %>
+      <% getPopularProducts(10).each do |p| %>
         <div class="popularProducts-item">
           <div class="popularProducts-img">
             <button class="popularProducts-saveOverlay" save_product value="<%= p.name %>"></button>
+            <label id="<%= p.id %>PP" class='hidden'></label>
             <script>
               if(checkSavedList('<%= p.name %>')) {
-                document.write("<label class='popularProducts-saveLabel'>SAVED</label>");
+                displaySaveLabel("<%= p.id %>PP", "popularProducts-saveLabel")
               }
             </script>
           </div>
@@ -43,9 +48,9 @@
   </div>
 
   <div class="collections-section">
-    <div class="collections-header">
+    <div class="section-header">
       <h1>Collection</h1>
-      <a class="seeAll-button">see all +</a>
+      <a class="seeAll-button" href="collections/0">see all +</a>
     </div>
     <div class="collections-gallery">
       <% Collection.first(4).each do |c| %>

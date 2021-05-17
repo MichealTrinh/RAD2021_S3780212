@@ -1,4 +1,22 @@
-<p id="notice"><%= notice %></p>
+<div class="body">
+  <% getPopularProducts(10).each do |p| %>
+    <div class="popularProducts-item">
+      <div class="popularProducts-img">
+        <button class="popularProducts-saveOverlay" save_product value="<%= p.name %>"></button>
+        <label id="<%= p.id %>PP" class='hidden'></label>
+        <script>
+          if(checkSavedList('<%= p.name %>')) {
+            displaySaveLabel("<%= p.id %>PP", "popularProducts-saveLabel")
+          }
+        </script>
+      </div>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+      <div class="popularProducts-description">
+        <tr>
+          <td><p class="popularProducts-name"><%=p.name%></p></td>
+          <td><p class="popularProducts-price">$<%=price_dollars(p.price)%></p></td
+        </tr>
+      </div>
+    </div>
+  <% end %>
+</div>

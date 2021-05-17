@@ -59,7 +59,12 @@ class CollectionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_collection
-      @collection = Collection.find(params[:id])
+      if(params[:id].to_i != 0)
+        puts params[:id] + "------------------------------------"
+        @collection = Collection.find(params[:id])
+      else
+        @collection = Collection.all
+      end
     end
 
     # Only allow a list of trusted parameters through.

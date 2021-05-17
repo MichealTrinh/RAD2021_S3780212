@@ -196,7 +196,8 @@ a:-webkit-any-link {
 
 .menuSectionList li {
   color: gray;
-  padding-bottom: 0.2em;
+  font-size: medium;
+  padding-bottom: 0.5em;
 }
 
 /*body*/

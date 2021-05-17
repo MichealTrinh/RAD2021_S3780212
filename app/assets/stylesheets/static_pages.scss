@@ -3,6 +3,17 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 
+.section-header {
+  position: relarive;
+  display: flex;
+}
+
+.section-header a {
+  position: absolute;
+  margin-top: 8px;
+  right: 0;
+}
+
 /*Random Product Section*/
 .randomProduct-container {
   position: relative;
@@ -143,28 +154,6 @@
 .collections-section {
   position: relative;
   margin: 1em 0;
-}
-
-.collections-header {
-  position: relarive;
-  display: flex;
-}
-
-.collections-header a {
-  position: absolute;
-  right: 0;
-}
-
-.collections-header a:hover {
-  color: none;
-}
-
-.collections-header a:active {
-  color: none;
-}
-
-.collections-header a:visited {
-  color: none;
 }
 
 .collections-gallery {

@@ -7,11 +7,9 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
-
-require("packs/functions.js");
-
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-require("packs/overlayFunctions.js");
+require("src/functions.js");
+require("src/overlayFunctions.js");

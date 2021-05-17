@@ -3,6 +3,10 @@ module CollectionsHelper
     collection.products.count
   end
   def getAllProducts
-    Collection.find(params[:id]).products
+    if params[:id].to_i == 0
+      @products = Product.all
+    else
+      @collection.products
+    end
   end
 end

@@ -34,6 +34,16 @@
           </div>
           <div class="menuSectionList-container">
             <h2>Saved</h2>
+            <ul id="saveList" class="menuSectionList">
+              <script>
+                  for(var i = 0; i < window.localStorage.length; i++) {
+                    var node = document.createElement("LI");
+                    var textnode = document.createTextNode(window.localStorage.key(i));
+                    node.appendChild(textnode);
+                    document.getElementById("saveList").appendChild(node);
+                  }
+              </script>
+            </ul>
           </div>
         </div>
 

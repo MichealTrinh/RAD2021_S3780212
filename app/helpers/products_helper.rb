@@ -11,7 +11,7 @@ module ProductsHelper
     Product.find(rand(1..Product.all.count))
   end
 
-  def getPopularProducts
+  def getPopularProducts(amount)
     @products = Product.all
     @products.each do |p|
       p.class_eval do
@@ -19,7 +19,11 @@ module ProductsHelper
       end
       p.popularityScore = p.timesSaved + p.timesPurchased
     end
-    @products.sort_by{|p| p.popularityScore}.reverse!
+    if(amount == 0)
+      @products.sort_by{|p| p.popularityScore}.reverse!
+    else
+      @products.sort_by{|p| p.popularityScore}.reverse!.first(amount)
+    end
   end
 
   def updateNewIns
