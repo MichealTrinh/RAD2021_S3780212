@@ -13,10 +13,10 @@
       <p><%= @product.description %></p>
       <p><%= "$" + price_dollars(@product.price).to_s %></p>
     </div>
-    <button class="randomProduct-saveOverlay" save_product value="<%= @product.name %>"></button>
+    <button class="randomProduct-saveOverlay" save_product value="<%= @product.id.to_s + ' ' + @product.name %>"></button>
     <button class="saveButton" save_product value="<%= @product.name %>"><%= image_tag("plus_icon.png", :alt => "Save", :class => "saveButton-icon") %></button>
   </div>
-  <!--<button clear_storage>clear storage</button>-->
+  <button clear_storage>clear storage</button>
 
   <div class="popularProducts-section">
     <div class="section-header">
@@ -27,7 +27,7 @@
       <% getPopularProducts(10).each do |p| %>
         <div class="popularProducts-item">
           <div class="popularProducts-img">
-            <button class="popularProducts-saveOverlay" save_product value="<%= p.name %>"></button>
+            <button class="popularProducts-saveOverlay" save_product value="<%= p.id.to_s + ' ' + p.name %>"></button>
             <label id="<%= p.id %>PP" class='hidden'></label>
             <script>
               if(checkSavedList('<%= p.name %>')) {
