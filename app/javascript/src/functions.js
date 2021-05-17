@@ -58,3 +58,20 @@ window.displaySaveLabel = function(id, className) {
   element.classList.toggle("hidden");
   element.classList.toggle(className);
 }
+
+window.displaySaveList = function() {
+  for(var i = 0; i < window.localStorage.length; i++) {
+    var item = window.localStorage.key(i).split(/\s(.+)/);
+    console.log("item " + i);
+    for(var x in item) {
+      console.log(item[x]);
+    }
+    var node = document.createElement("LI");
+    var linkNode = document.createElement("A")
+    linkNode.href = "product/" + item[0];
+    var textnode = document.createTextNode(item[1]);
+    node.appendChild(linkNode);
+    linkNode.appendChild(textnode);
+    document.getElementById("saveList").appendChild(node);
+  }
+}
