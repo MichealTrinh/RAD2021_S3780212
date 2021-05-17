@@ -19,6 +19,9 @@ class ProductsController < ApplicationController
   def edit
   end
 
+  def popular
+  end
+
   # POST /products or /products.json
   def create
     @product = Product.new(product_params)

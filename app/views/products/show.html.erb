@@ -1,22 +1,16 @@
+<% @product = Product.find(params[:id])  %>
 <div class="body">
-  <% getPopularProducts(10).each do |p| %>
-    <div class="popularProducts-item">
-      <div class="popularProducts-img">
-        <button class="popularProducts-saveOverlay" save_product value="<%= p.name %>"></button>
-        <label id="<%= p.id %>PP" class='hidden'></label>
-        <script>
-          if(checkSavedList('<%= p.name %>')) {
-            displaySaveLabel("<%= p.id %>PP", "popularProducts-saveLabel")
-          }
-        </script>
-      </div>
+  <div class="imageDisplay-section">
 
-      <div class="popularProducts-description">
-        <tr>
-          <td><p class="popularProducts-name"><%=p.name%></p></td>
-          <td><p class="popularProducts-price">$<%=price_dollars(p.price)%></p></td
-        </tr>
-      </div>
-    </div>
-  <% end %>
+  </div>
+
+  <div class="productDetails-section">
+    <h1><%= @product.name %></h1>
+    <p>$<%= price_dollars(@product.price) %></p>
+    <p><%= @product.description %></p>
+  </div>
+
+  <div class="productForm-section">
+
+  </div>
 </div>

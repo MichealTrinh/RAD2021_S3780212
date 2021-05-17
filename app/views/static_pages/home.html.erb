@@ -4,7 +4,7 @@
   <div class="randomProduct-container">
     <label id="<%= @product.id %>RP" class='hidden'></label>
     <script>
-      if(checkSavedList('<%= @product.name %>')) {
+      if(checkSavedList('<%= @product.id.to_s + ' ' + @product.name %>')) {
         displaySaveLabel("<%= @product.id %>RP", "randomProduct-saveLabel")
       }
     </script>
@@ -21,7 +21,7 @@
   <div class="popularProducts-section">
     <div class="section-header">
       <h1>Popular</h1>
-      <a class="seeAll-button" href="products/popular">see all +</a>
+      <a class="seeAll-button" href="/popular">see all +</a>
     </div>
     <div class="bannerScroll">
       <% getPopularProducts(10).each do |p| %>
@@ -30,7 +30,7 @@
             <button class="popularProducts-saveOverlay" save_product value="<%= p.id.to_s + ' ' + p.name %>"></button>
             <label id="<%= p.id %>PP" class='hidden'></label>
             <script>
-              if(checkSavedList('<%= p.name %>')) {
+              if(checkSavedList('<%= p.id.to_s + ' ' + p.name %>')) {
                 displaySaveLabel("<%= p.id %>PP", "popularProducts-saveLabel")
               }
             </script>

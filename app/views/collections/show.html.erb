@@ -2,10 +2,10 @@
   <% getAllProducts.each do |p| %>
     <div class="collectionProducts-item">
       <div class="collectionProducts-img">
-        <button class="collectionProducts-saveOverlay" save_product value="<%= p.name %>"></button>
+        <button class="collectionProducts-saveOverlay" save_product value="<%= p.id.to_s + ' ' + p.name %>"></button>
         <label id="<%= p.id %><%=params[:id]%>CP" class='hidden'></label>
         <script>
-          if(checkSavedList('<%= p.name %>')) {
+          if(checkSavedList('<%= p.id.to_s + ' ' + p.name %>')) {
             displaySaveLabel("<%= p.id %><%=params[:id]%>CP", "collectionProducts-saveLabel")
           }
         </script>

@@ -44,7 +44,7 @@
                     }
                     var node = document.createElement("LI");
                     var linkNode = document.createElement("A")
-                    linkNode.href = "product/" + item[0];
+                    linkNode.href = "/products/" + item[0];
                     var textnode = document.createTextNode(item[1]);
                     node.appendChild(linkNode);
                     linkNode.appendChild(textnode);
@@ -77,6 +77,9 @@
         <% end %>
         <% if params[:action] == 'collections/show' %>
           <h2><%= Collection.find(params[:id]).name %></h2>
+        <% end %>
+        <% if params[:action] == 'products/popular' %>
+          <h2>Popular</h2>
         <% end %>
 
       </div>

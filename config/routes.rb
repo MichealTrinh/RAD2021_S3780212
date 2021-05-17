@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   get 'collections/show'
   get 'emails/new'
   get 'emails/show'
+  get 'products/show'
+  get 'popular',:to => 'products#popular'
+
   post '/', :to => 'emails#create'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
