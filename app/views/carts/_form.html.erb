@@ -13,17 +13,17 @@
 
   <div class="field">
     <%= form.label :size %>
-    <%= form.number_field :size %>
+    <%= form.select :size, options_for_select([ "S", "M", "L" ]) %>
   </div>
 
   <div class="field">
     <%= form.label :color %>
-    <%= form.text_field :color %>
+    <%= form.select :color, options_for_select([ "Black", "White", "Red", "Blue", "Yellow", "Green", "Purple", "Pink", "Orange", "Brown", "Gray" ]) %>
   </div>
 
   <div class="field">
     <%= form.label :quantity %>
-    <%= form.number_field :quantity %>
+    <%= form.select :quantity, ((1..50).map {|i| [i,i] } << [1]) %>
   </div>
 
   <div class="field">
@@ -35,6 +35,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit :id => "commit" %>
+    <%= form.submit "add to bag",:id => "commit" %>
   </div>
 <% end %>

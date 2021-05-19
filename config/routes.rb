@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
   resources :carts
   resources :users
   resources :images
@@ -15,6 +14,8 @@ Rails.application.routes.draw do
   get 'products/show'
   get 'popular',:to => 'products#popular'
   get 'users', :to => 'users#index'
+  get 'signup', :to => 'users#new'
+  get 'checkout', :to => 'carts#checkout'
 
   post '/', :to => 'emails#create'
   get '/login', to: 'sessions#new'

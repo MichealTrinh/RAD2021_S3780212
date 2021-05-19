@@ -1,13 +1,21 @@
-<% provide(:title, "Log in") %>
-<h1>Log in</h1>
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(:session, url: login_path) do |f| %>
-      <%= f.label :username %>
-      <%= f.text_field :username, clasTs: 'form-control' %>
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
-      <%= f.submit "Log in", class: "btn btn-primary" %>
-    <% end %>
+<div class="body">
+  <h2>Log in to enter the wonderland of fashion...</h2>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= form_for(:session, url: login_path) do |f| %>
+        <%= f.label :username %>
+        <%= f.text_field :username, clasTs: 'form-control' %>
+        <%= f.label :password %>
+        <%= f.password_field :password, class: 'form-control' %>
+        <%= f.submit "Login", class: "btn btn-primary" %>
+      <% end %>
+
+      <%= link_to "Forgot password?", method: :get %>
+
+
+      <%= form_with(model: @user, url: "/logout") do |form| %>
+        <%= form.submit :value => "Logout" %>
+      <% end %>
+    </div>
   </div>
 </div>

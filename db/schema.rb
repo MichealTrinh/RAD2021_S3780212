@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2021_05_18_060921) do
   enable_extension "plpgsql"
 
   create_table "carts", force: :cascade do |t|
-    t.integer "size"
+    t.string "size"
     t.string "color"
     t.integer "quantity"
     t.datetime "created_at", precision: 6, null: false

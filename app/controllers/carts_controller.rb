@@ -1,5 +1,6 @@
 class CartsController < ApplicationController
   before_action :set_cart, only: %i[ show edit update destroy ]
+  before_action :logged_in_user, only: [:index]
 
   # GET /carts or /carts.json
   def index
@@ -22,24 +23,20 @@ class CartsController < ApplicationController
   # POST /carts or /carts.json
   def create
 
-    authorize
-
-    puts session[:user_id].to_s
-    puts " -------------------------------------------------"
     if (!(session[:user_id]))
-      puts " -------------------------------------------------"
-      redirect_to root
-    end
+      redirect_to "/login" and return
+    else
 
-    @cart = Cart.new(cart_params)
+      @cart = Cart.new(cart_params)
 
-    respond_to do |format|
-      if @cart.save
-        format.html { redirect_to @cart, notice: "Cart was successfully created." }
-        format.json { render :show, status: :created, location: @cart }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @cart.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @cart.save
+          format.html { redirect_to @cart, notice: "Cart was successfully created." }
+          format.json { render :show, status: :created, location: @cart }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @cart.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -66,6 +63,15 @@ class CartsController < ApplicationController
     end
   end
 
+  def checkout
+     @user = User.find_by(:id => session[:user_id])
+    @cartItems = Cart.all.where("user_id = " + @user.id.to_s)
+    @cartItems.each do |c|
+      c.destroy
+    end
+    redirect_to root_path
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cart
@@ -77,12 +83,9 @@ class CartsController < ApplicationController
       params.require(:cart).permit(:size, :color, :quantity, :product_id, :user_id)
     end
 
-
-    def authorize
-      redirect_to '/users/login' unless current_user
-    end
-
-    def current_user
-      @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    def logged_in_user
+      unless logged_in?
+        redirect_to users_url
+      end
     end
 end

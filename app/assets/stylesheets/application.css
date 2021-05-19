@@ -79,22 +79,28 @@ a:-webkit-any-link {
 }
 
 .toolBar {
- position: relative;
- display: flex;
- justify-content: space-between;
- width: 100%;
- height: 1.5em;
- margin-left: 0.5em;
- border: 0;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 1.5em;
+  margin-left: 0.5em;
+  border: 0;
 }
 
 .pageTitle {
- height: fit-content;
- margin: 0;
- padding: 0;
+  height: fit-content;
+  text-align: center;
+  margin: 0;
+  padding: 0;
 }
 
 .pageTitle, h2 {
+  margin: 0;
+  padding: 0;
+}
+
+.pageTitle, p {
   margin: 0;
   padding: 0;
 }

@@ -17,8 +17,9 @@ function searchOverlay() {
   element.classList.toggle("hidden");
   element.classList.toggle("overlay");
 }
+
 function menuButtonListener() {
-window.addEventListener("load", () => {
+  window.addEventListener("load", () => {
     const links = document.querySelectorAll(
       "button[menuOverlay]"
     );

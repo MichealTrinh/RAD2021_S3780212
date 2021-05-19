@@ -8,4 +8,8 @@
       <li><a href="https://www.rmit.edu.au/">RMIT</a></li>
     </ul>
   </nav>
+  <div>
+    <% @user = User.find_by(id: session[:user_id]) %>
+    <p>Current User: <%= if @user then @user.username end %></p>
+  </div>
 </footer>

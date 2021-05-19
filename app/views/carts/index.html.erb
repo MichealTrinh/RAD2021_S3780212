@@ -1,31 +1,37 @@
-<p id="notice"><%= notice %></p>
+<% @user = User.find_by(:id => session[:user_id]) %>
+<% @cartItems = Cart.all.where("user_id = " + @user.id.to_s) %>
+<% @subTotal = 0 %>
+<div class="body">
+  <% if @cartItems.exists? %>
+    <% @cartItems.each do |c| %>
+      <% @product = Product.find_by(:id => c.product_id) %>
+      <div class="cart-item">
+        <div class="cart-img">
+          <label id="<%= @product.id %><%=params[:id] %>CP" class='hidden'></label>
+        </div>
 
-<h1>Carts</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Size</th>
-      <th>Color</th>
-      <th>Quantity</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @carts.each do |cart| %>
-      <tr>
-        <td><%= cart.size %></td>
-        <td><%= cart.color %></td>
-        <td><%= cart.quantity %></td>
-        <td><%= link_to 'Show', cart %></td>
-        <td><%= link_to 'Edit', edit_cart_path(cart) %></td>
-        <td><%= link_to 'Destroy', cart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <div class="cart-details">
+          <tr>
+            <td><h3 class="cart-name"><%= @product.name %></h3></td>
+            <td><p class="cart-price">$<%= price_dollars(@product.price) %></p></td>
+            <td><p class="cart-description"><%= @product.description %></p></td>
+            <td><p class="cart-color">Color: <%= c.color %></p></td>
+            <td><p class="cart-size">Size: <%= c.size %></p></td>
+            <td><p class="cart-quantity">Quantity: <%= c.quantity %></p></td>
+          </tr>
+        </div>
+      </div>
+      <% @subTotal += @product.price %>
     <% end %>
-  </tbody>
-</table>
 
-<br>
-
-<%= link_to 'New Cart', new_cart_path %>
+    <div class="cart-costs">
+      <p class="cart-tax">taxes: $<%= price_dollars(@tax = (@subTotal / 11.11).round) %></p>
+      <p class="cart-subTotal">sub-total: $<%= price_dollars(@subTotal) %></p>
+      <h2 class="cart-total">total: <%= price_dollars(@tax + @subTotal) %></h2>
+    </div>
+    <%= button_to "Check out", checkout_path, method: :get %>
+  <% else %>
+    <h2 class="cart-emotyTitle">It's lonely here</h2>
+    <p>Start shopping and add more items to the bag, and then there will be joy here...</p>
+  <% end %>
+</div>

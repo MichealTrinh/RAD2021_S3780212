@@ -1,3 +1,9 @@
+<% if session[:user_id] %>
+  <% @user = User.find_by(id: session[:user_id]) %>
+<% else %>
+  <% @user = User.new %>
+<% end %>
+<% current_uri = request.env['PATH_INFO'] %>
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
     <div class="upperHeader">
@@ -7,6 +13,9 @@
     </div>
 
     <div class="toolBar">
+      <% if current_uri == '/login' || current_uri == '/signup' || current_uri == '/carts' %>
+        <%= link_to image_tag(asset_url("icons/close_icon.png"), :class => "toolBarImages"), url_for(:back), :class => 'toolBarButtons' %>
+      <% else %>
       <button class="toolBarButtons" menuOverlay><%= image_tag("icons/menu_icon.png", :alt => "Menu", :class => "toolBarImages") %></button>
       <div id="menuOverlay" class="hidden">
         <button class="closeOverlay" menuOverlay><%= image_tag("icons/close_icon.png", :alt => "Close Menu", :class => "toolBarImages") %></button>
@@ -66,35 +75,46 @@
         </div>
 
       </div>
-
+      <% end %>
       <div class="pageTitle">
 
-        <% if params[:action] == 'about' %>
+        <% if current_uri == '/about' %>
           <h2>About</h2>
         <% end %>
-        <% if params[:action] == 'help' %>
+        <% if current_uri == '/help' %>
           <h2>Help & Support</h2>
         <% end %>
-        <% if params[:action] == 'collections/show' %>
+        <% if current_uri == '/collections/' + params[:id].to_s %>
           <h2><%= Collection.find(params[:id]).name %></h2>
         <% end %>
         <% if params[:action] == 'products/popular' %>
           <h2>Popular</h2>
         <% end %>
+        <% if current_uri == '/login' %>
+          <h2>Login</h2>
+        <% end %>
+        <% if current_uri == '/signup' %>
+          <h2>Signup</h2>
+        <% end %>
+        <% if current_uri == '/carts' %>
+          <h2>Bag</h2>
+          <p>(<%= Cart.all.where("user_id = " + session[:user_id].to_s).count() %>)</p>
+        <% end %>
+
+        <% if params[:action] %>
+          <% puts params[:action] + " ------------------------ " + request.env['PATH_INFO']%>
+        <% end %>
 
       </div>
 
       <div class="cartSearchGroup">
-        <button class="toolBarButtons" style="margin-right: 1em;" cartOverlay><%= image_tag("icons/bag_icon.png", :alt => "Cart", :class => "toolBarImages") %></button>
-        <div id="cartOverlay" class="hidden">
-          <button class="closeOverlay" cartOverlay><%= image_tag("icons/close_icon.png", :alt => "Menu", :class => "toolBarImages") %></button>
-        </div>
+        <%= form_for :carts, url: "/carts", method: "get", :html => {:class => 'toolBarButtons'} do |form| %>
+          <%= form.submit "", :type => :image, :src => asset_url("icons/bag_icon.png"), :class => "toolBarImages"%>
+        <% end %>
 
-        <button class="toolBarButtons" searchOverlay><%= image_tag("icons/search_icon.png", :alt => "Search", :class => "toolBarImages") %></button>
-        <div id="searchOverlay" class="hidden">
-          <button class="closeOverlay" searchOverlay><%= image_tag("icons/close_icon.png", :alt => "Menu", :class => "toolBarImages") %></button>
-          <input class="searchBox" type="text" placeholder="Search">
-        </div>
+        <%= form_for :search, url: "/search}", method: "get", :html => {:class => 'toolBarButtons'} do |form| %>
+          <%= form.submit "", :type => :image, :src => asset_url("icons/search_icon.png"), :class => "toolBarImages"%>
+        <% end %>
       </div>
   </div>
 </header>
