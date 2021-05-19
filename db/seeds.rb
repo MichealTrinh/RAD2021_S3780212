@@ -25,7 +25,7 @@ Product.find(3).collections << Collection.find(3)
 Product.find(4).collections << Collection.find(3)
 # Product.find(4).collection << Collection.find(4)
 
-# Product.create(:name => "Winter Vibes", :description => "Cold & Brilliant start", :price => 2999, :timesViewed => 0, :timesSaved => 0, :timesPurchased => 0, :collection_id => 2)
-# Product.create(:name => "Black Knit Sweatshirt", :description => "A black sweatshirt", :price => 12999, :timesViewed => 0, :timesSaved => 1, :timesPurchased => 0, :collection_id => 1)
-# Product.create(:name => "Skull's Sweater", :description => "A sweater from a huy named Skull", :price => 12999, :timesViewed => 0, :timesSaved => 0, :timesPurchased => 1, :collection_id => 4)
-# Product.create(:name => "Swag Sweater", :description => "A very swag sweater", :price => 420, :timesViewed => 0, :timesSaved => 1, :timesPurchased => 1, :collection_id => 3)
+User.create(:username => "RAD", :password => "Rails2021", :email => "rad2021rmit@gmail.com")
+
+Image.create(:name => "black_knit_sweater_1", :alt => "A black knitted sweater.", :product_id => 2)
+Image.create(:name => "black_knit_sweater_2", :alt => "A knitted sweater made of black threads.", :product_id => 2)

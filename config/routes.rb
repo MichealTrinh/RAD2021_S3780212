@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+  resources :carts
+  resources :users
   resources :images
   resources :emails
   resources :collections
@@ -11,7 +14,11 @@ Rails.application.routes.draw do
   get 'emails/show'
   get 'products/show'
   get 'popular',:to => 'products#popular'
+  get 'users', :to => 'users#index'
 
   post '/', :to => 'emails#create'
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  post '/logout', to: 'sessions#destroy'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

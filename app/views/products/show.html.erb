@@ -1,8 +1,14 @@
 <% @product = Product.find(params[:id])  %>
+<% if (session[:user_id]) %>
+  <% @user = User.find_by(:username => "RAD") %>
+<% else %>
+  <% @user = User.new %>
+<% end %>
+<% @cart = Cart.new %>
 <div class="body">
   <div class="imageDisplay-section">
     <% getAllImagesForProduct.each do |i| %>
-      <%= image_tag "product_images/#{i.name}", class: "imageDisplay-image" %>
+      <%= image_tag "product_images/#{i.name}", class: "imageDisplay-image", :alt => i.alt %>
     <% end %>
   </div>
 
@@ -13,6 +19,8 @@
   </div>
 
   <div class="productForm-section">
-
+    <%= render '/carts/form', cart: @cart %>
   </div>
 </div>
+<script>
+</script>
