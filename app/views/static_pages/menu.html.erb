@@ -1,0 +1,56 @@
+<div class="body">
+    <div class="menuSection">
+      <div class="menuSectionIcon-container">
+        <%= image_tag(asset_url("icons/stack_icon.png"), :class => "menuSectionIcon") %>
+      </div>
+
+      <div class="menuSectionList-container">
+        <h2>shop</h2>
+        <nav>
+          <ul class="menuSectionList">
+            <li><%= link_to "Men", '/collections/1' %></li>
+            <li><%= link_to "Women", '/collections/2' %></li>
+            <li><%= link_to "Kids", '/collections/3' %></li>
+            <li><%= link_to "New-Ins", '/collections/4' %></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="menuSection">
+      <div class="menuSectionIcon-container">
+        <%= image_tag("icons/heart_icon.png", :class => "menuSectionIcon") %>
+      </div>
+      <div class="menuSectionList-container">
+        <h2>Saved</h2>
+        <ul id="saveList" class="menuSectionList">
+          <script>
+              for(var i = 0; i < window.localStorage.length; i++) {
+                var item = window.localStorage.key(i).split(/\s(.+)/);
+                console.log("item " + i);
+                for(var x in item) {
+                  console.log(item[x]);
+                }
+                var node = document.createElement("LI");
+                var linkNode = document.createElement("A")
+                linkNode.href = "/products/" + item[0];
+                var textnode = document.createTextNode(item[1]);
+                node.appendChild(linkNode);
+                linkNode.appendChild(textnode);
+                document.getElementById("saveList").appendChild(node);
+              }
+          </script>
+        </ul>
+      </div>
+    </div>
+
+    <div class="menuSection">
+      <nav class="menuNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><div class="menuSectionIcon-container"><%= image_tag("icons/home_icon.png", :class => "menuSectionIcon") %></div><%= link_to "Home", root_path %></li>
+          <li><div class="menuSectionIcon-container"><%= image_tag("icons/about_icon.png", :class => "menuSectionIcon") %></div><%= link_to "About", static_pages_about_url %></li>
+          <li><div class="menuSectionIcon-container"><%= image_tag("icons/help_icon.png", :class => "menuSectionIcon") %></div><%= link_to "Help & Support", static_pages_help_url %></li>
+        </ul>
+      </nav>
+    </div>
+</div>

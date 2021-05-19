@@ -13,68 +13,13 @@
     </div>
 
     <div class="toolBar">
-      <% if current_uri == '/login' || current_uri == '/signup' || current_uri == '/carts' %>
-        <%= link_to image_tag(asset_url("icons/close_icon.png"), :class => "toolBarImages"), url_for(:back), :class => 'toolBarButtons' %>
+      <% if checkPageType %>
+        <%= link_to image_tag(asset_url("icons/close_icon.png"), :class => "toolBarImages"), url_for(:back), :class => 'toolBarButtons', :id => "close" %>
       <% else %>
-      <button class="toolBarButtons" menuOverlay><%= image_tag("icons/menu_icon.png", :alt => "Menu", :class => "toolBarImages") %></button>
-      <div id="menuOverlay" class="hidden">
-        <button class="closeOverlay" menuOverlay><%= image_tag("icons/close_icon.png", :alt => "Close Menu", :class => "toolBarImages") %></button>
-        <div class="menuSection">
-          <div class="menuSectionIcon-container">
-            <%= image_tag("icons/stack_icon.png", :class => "menuSectionIcon") %>
-          </div>
+        <%= form_for :carts, url: "/static_pages/menu", method: "get", :html => {:class => 'toolBarButtons', :id => "menu"} do |form| %>
+          <%= form.submit "", :type => :image, :src => asset_url("icons/menu_icon.png"), :class => "toolBarImages"%>
+        <% end %>
 
-          <div class="menuSectionList-container">
-            <h2>shop</h2>
-            <nav>
-              <ul class="menuSectionList">
-                <li>Men</li>
-                <li>Women</li>
-                <li>Kids</li>
-                <li>New-ins</li>
-              </ul>
-            </nav>
-          </div>
-        </div>
-
-        <div class="menuSection">
-          <div class="menuSectionIcon-container">
-            <%= image_tag("icons/heart_icon.png", :class => "menuSectionIcon") %>
-          </div>
-          <div class="menuSectionList-container">
-            <h2>Saved</h2>
-            <ul id="saveList" class="menuSectionList">
-              <script>
-                  for(var i = 0; i < window.localStorage.length; i++) {
-                    var item = window.localStorage.key(i).split(/\s(.+)/);
-                    console.log("item " + i);
-                    for(var x in item) {
-                      console.log(item[x]);
-                    }
-                    var node = document.createElement("LI");
-                    var linkNode = document.createElement("A")
-                    linkNode.href = "/products/" + item[0];
-                    var textnode = document.createTextNode(item[1]);
-                    node.appendChild(linkNode);
-                    linkNode.appendChild(textnode);
-                    document.getElementById("saveList").appendChild(node);
-                  }
-              </script>
-            </ul>
-          </div>
-        </div>
-
-        <div class="menuSection">
-          <nav class="menuNavbar">
-            <ul class="nav navbar-nav navbar-right">
-              <li><div class="menuSectionIcon-container"><%= image_tag("icons/home_icon.png", :class => "menuSectionIcon") %></div><%= link_to "Home", root_path %></li>
-              <li><div class="menuSectionIcon-container"><%= image_tag("icons/about_icon.png", :class => "menuSectionIcon") %></div><%= link_to "About", static_pages_about_url %></li>
-              <li><div class="menuSectionIcon-container"><%= image_tag("icons/help_icon.png", :class => "menuSectionIcon") %></div><%= link_to "Help & Support", static_pages_help_url %></li>
-            </ul>
-          </nav>
-        </div>
-
-      </div>
       <% end %>
       <div class="pageTitle">
 
@@ -100,21 +45,25 @@
           <h2>Bag</h2>
           <p>(<%= Cart.all.where("user_id = " + session[:user_id].to_s).count() %>)</p>
         <% end %>
+        <% if current_uri == '/static_pages/search' %>
+          <h2>search</h2>
+        <% end %>
 
         <% if params[:action] %>
           <% puts params[:action] + " ------------------------ " + request.env['PATH_INFO']%>
         <% end %>
 
       </div>
+      <% unless checkPageType %>
+        <div class="cartSearchGroup">
+          <%= form_for :carts, url: "/carts", method: "get", :html => {:class => 'toolBarButtons'} do |form| %>
+            <%= form.submit "", :type => :image, :src => asset_url("icons/bag_icon.png"), :class => "toolBarImages"%>
+          <% end %>
 
-      <div class="cartSearchGroup">
-        <%= form_for :carts, url: "/carts", method: "get", :html => {:class => 'toolBarButtons'} do |form| %>
-          <%= form.submit "", :type => :image, :src => asset_url("icons/bag_icon.png"), :class => "toolBarImages"%>
-        <% end %>
-
-        <%= form_for :search, url: "/search}", method: "get", :html => {:class => 'toolBarButtons'} do |form| %>
-          <%= form.submit "", :type => :image, :src => asset_url("icons/search_icon.png"), :class => "toolBarImages"%>
-        <% end %>
-      </div>
+          <%= form_for :search, url: "/static_pages/search", method: "get", :html => {:class => 'toolBarButtons'} do |form| %>
+            <%= form.submit "", :type => :image, :src => asset_url("icons/search_icon.png"), :class => "toolBarImages"%>
+          <% end %>
+        </div>
+      <% end %>
   </div>
 </header>
