@@ -10,17 +10,21 @@ Rails.application.routes.draw do
   get 'static_pages/help'
   get 'static_pages/menu'
   get 'static_pages/search'
+
   get 'collections/show'
-  get 'emails/new'
-  get 'emails/show'
+
   get 'products/show'
+
   get 'popular',:to => 'products#popular'
+
   get 'users', :to => 'users#index'
   get 'signup', :to => 'users#new'
+
   get 'checkout', :to => 'carts#checkout'
 
-  post '/', :to => 'subscriptions#checkExists'
   get '/subscribe', :to => 'subscriptions#subscribeUser'
+  post '/', :to => 'subscriptions#checkExists'
+
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
