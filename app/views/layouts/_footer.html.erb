@@ -1,15 +1,8 @@
-<footer class="footer">
-  <small>
-    <a href="http://www.rad2021.com/">RAD 2021</a>
-  </small>
-  <nav>
-    <ul>
-      <li><%= link_to "About", static_pages_about_url %></li>
-      <li><a href="https://www.rmit.edu.au/">RMIT</a></li>
-    </ul>
-  </nav>
-  <div>
-    <% @user = User.find_by(id: session[:user_id]) %>
-    <p>Current User: <%= if @user then @user.username end %></p>
+<footer>
+  <div class="footer-toolbar">
+    <%= button_to "Home", root_path, method: :get %>
+    <%= button_to "Scan", root_path, method: :get %>
+    <%= button_to "Saved", login_path, method: :get %>
+    <%= button_to "Account", "/users/" + session[:user_id].to_s, method: :get %>
   </div>
 </footer>

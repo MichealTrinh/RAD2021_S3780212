@@ -40,12 +40,23 @@ body {
 }
 
 footer {
+  position: fixed;
+  background-color: #f7f7f7;
+  z-index: 4;
+  width: 100vw;
+  padding: 1em 0;
   bottom: 0;
+  left: 0;
 }
 
-a:-webkit-any-link {
-  text-decoration: none;
+a:visited {
   color: black;
+  background-color: transparent;
+}
+
+a:hover {
+  color: black;
+  background-color: transparent;
 }
 
 /*header*/
@@ -222,7 +233,7 @@ a:-webkit-any-link {
 /*body*/
 
 .body {
-    margin-top: 5em;
+    margin: 5em 0;
 }
 
 .top-banner {
@@ -232,3 +243,15 @@ a:-webkit-any-link {
 }
 
 /*footer*/
+
+.footer-toolbar {
+    display: flex;
+    width: 100%;
+    grid-column-gap: 1em;
+    justify-content: center;
+}
+
+.footer-toolbar .button_to input {
+  height: 5em;
+  width: 5em;
+}

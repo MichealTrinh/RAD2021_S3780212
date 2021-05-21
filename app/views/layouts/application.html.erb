@@ -12,6 +12,8 @@
   <body>
     <%= render 'layouts/header' %>
     <%= yield %>
-    <%= render 'layouts/footer' %>
+    <% if !checkPageType %>
+      <%= render 'layouts/footer' %>
+    <% end %>
   </body>
 </html>

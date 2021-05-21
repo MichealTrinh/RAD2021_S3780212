@@ -1,3 +1,9 @@
+<% current_uri = request.env['PATH_INFO'] %>
+<% if current_uri == '/signup' %>
+  <% @buttonVal = "Sign up" %>
+<% else %>
+  <% @buttonVal = "Update" %>
+<% end %>
 <%= form_with(model: user) do |form| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
@@ -32,6 +38,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit "Sign up"%>
+    <%= form.submit @buttonVal %>
   </div>
 <% end %>

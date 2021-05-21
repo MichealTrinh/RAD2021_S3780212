@@ -11,11 +11,6 @@
       <% end %>
 
       <%= link_to "Forgot password?", method: :get %>
-
-
-      <%= form_with(model: @user, url: "/logout") do |form| %>
-        <%= form.submit :value => "Logout" %>
-      <% end %>
     </div>
   </div>
 </div>

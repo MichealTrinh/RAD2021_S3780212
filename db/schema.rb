@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_18_060921) do
+ActiveRecord::Schema.define(version: 2021_05_21_061254) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,14 @@ ActiveRecord::Schema.define(version: 2021_05_18_060921) do
     t.integer "timesPurchased"
   end
 
+  create_table "subscriptions", force: :cascade do |t|
+    t.string "email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_subscriptions_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password"
@@ -75,4 +83,5 @@ ActiveRecord::Schema.define(version: 2021_05_18_060921) do
   add_foreign_key "carts", "products"
   add_foreign_key "carts", "users"
   add_foreign_key "images", "products"
+  add_foreign_key "subscriptions", "users"
 end

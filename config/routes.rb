@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
+  resources :subscriptions
   resources :carts
   resources :users
   resources :images
-  resources :emails
   resources :collections
   resources :products
   root 'static_pages#home'
@@ -19,9 +19,10 @@ Rails.application.routes.draw do
   get 'signup', :to => 'users#new'
   get 'checkout', :to => 'carts#checkout'
 
-  post '/', :to => 'emails#create'
+  post '/', :to => 'subscriptions#checkExists'
+  get '/subscribe', :to => 'subscriptions#subscribeUser'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
-  post '/logout', to: 'sessions#destroy'
+  get '/logout', to: 'sessions#destroy'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
