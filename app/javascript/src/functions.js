@@ -1,3 +1,4 @@
+
 function save_product(name) {
   if (window.localStorage.getItem(name) != null) {
     window.localStorage.removeItem(name);
@@ -75,3 +76,22 @@ window.displaySaveList = function() {
     document.getElementById("saveList").appendChild(node);
   }
 }
+
+window.addEventListener("load", () => {
+  const links = document.querySelectorAll(
+    "button[id='collections_all']"
+  );
+  links.forEach((element) => {
+    element.addEventListener("click", (event) => {
+      event.preventDefault();
+      const selections = document.querySelectorAll("input[class='collections_select']");
+      selections.forEach((box) => {
+        if(!box.checked) {
+          box.checked = true;
+        } else {
+          box.checked = false;
+        }
+      });
+    });
+  });
+});

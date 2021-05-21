@@ -29,7 +29,7 @@
         <% if current_uri == '/help' %>
           <h2>Help & Support</h2>
         <% end %>
-        <% if current_uri == '/collections/' + params[:id].to_s %>
+        <% if current_uri == '/collections/' + params[:id].to_s && !(params[:id].to_s === "0") %>
           <h2><%= Collection.find(params[:id]).name %></h2>
         <% end %>
         <% if params[:action] == 'products/popular' %>

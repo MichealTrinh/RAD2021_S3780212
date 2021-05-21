@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   get 'static_pages/menu'
   get 'static_pages/search'
   get 'static_pages/filter'
+  post 'save_colors', :to => 'static_pages#save_colors'
+  post 'save_size', :to => 'static_pages#save_size'
+  post 'save_collections', :to => 'static_pages#save_collections'
 
   get 'collections/show'
 

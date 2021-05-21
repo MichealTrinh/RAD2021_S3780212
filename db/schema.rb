@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_21_061254) do
+ActiveRecord::Schema.define(version: 2021_05_21_130259) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,10 +38,19 @@ ActiveRecord::Schema.define(version: 2021_05_21_061254) do
     t.integer "product_id", null: false
   end
 
-  create_table "emails", force: :cascade do |t|
-    t.string "email"
+  create_table "colors", force: :cascade do |t|
+    t.boolean "white"
+    t.boolean "gray"
+    t.boolean "red"
+    t.boolean "purple"
+    t.boolean "blue"
+    t.boolean "green"
+    t.boolean "brown"
+    t.boolean "black"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "product_id", null: false
+    t.index ["product_id"], name: "index_colors_on_product_id"
   end
 
   create_table "images", force: :cascade do |t|
@@ -64,6 +73,18 @@ ActiveRecord::Schema.define(version: 2021_05_21_061254) do
     t.integer "timesPurchased"
   end
 
+  create_table "sizes", force: :cascade do |t|
+    t.boolean "s"
+    t.boolean "m"
+    t.boolean "l"
+    t.boolean "xl"
+    t.boolean "xxl"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "product_id", null: false
+    t.index ["product_id"], name: "index_sizes_on_product_id"
+  end
+
   create_table "subscriptions", force: :cascade do |t|
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
@@ -82,6 +103,8 @@ ActiveRecord::Schema.define(version: 2021_05_21_061254) do
 
   add_foreign_key "carts", "products"
   add_foreign_key "carts", "users"
+  add_foreign_key "colors", "products"
   add_foreign_key "images", "products"
+  add_foreign_key "sizes", "products"
   add_foreign_key "subscriptions", "users"
 end

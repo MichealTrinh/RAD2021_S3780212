@@ -2,24 +2,29 @@
   <div class="collectionToolbar">
     <%= button_to "Filter", "/static_pages/filter", method: :get, class: "filterButton" %>
   </div>
-  <% getAllProducts.each do |p| %>
-    <div class="collectionProducts-item">
-      <div class="collectionProducts-img">
-        <button class="collectionProducts-saveOverlay" save_product value="<%= p.id.to_s + ' ' + p.name %>"></button>
-        <label id="<%= p.id %><%=params[:id]%>CP" class='hidden'></label>
-        <script>
-          if(checkSavedList('<%= p.id.to_s + ' ' + p.name %>')) {
-            displaySaveLabel("<%= p.id %><%=params[:id]%>CP", "collectionProducts-saveLabel")
-          }
-        </script>
-      </div>
 
-      <div class="collectionProducts-description">
-        <tr>
-          <td><p class="collectionProducts-name"><%=p.name%></p></td>
-          <td><p class="collectionProducts-price">$<%=price_dollars(p.price)%></p></td
-        </tr>
-      </div>
-    </div>
+  <% getAllProducts.each do |p| %>
+    <% if checkColors(p) && checkSizes(p)%>
+      <% if (checkCollections(p) || params[:id].to_i != 0) %>
+        <div class="collectionProducts-item">
+          <div class="collectionProducts-img">
+            <button class="collectionProducts-saveOverlay" save_product value="<%= p.id.to_s + ' ' + p.name %>"></button>
+            <label id="<%= p.id %><%=params[:id]%>CP" class='hidden'></label>
+            <script>
+              if(checkSavedList('<%= p.id.to_s + ' ' + p.name %>')) {
+                displaySaveLabel("<%= p.id %><%=params[:id]%>CP", "collectionProducts-saveLabel")
+              }
+            </script>
+          </div>
+
+          <div class="collectionProducts-description">
+            <tr>
+              <td><p class="collectionProducts-name"><%=p.name%></p></td>
+              <td><p class="collectionProducts-price">$<%=price_dollars(p.price)%></p></td
+            </tr>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
   <% end %>
 </div>

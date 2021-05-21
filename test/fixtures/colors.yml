@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  white: false
+  gray: false
+  red: false
+  purple: false
+  blue: false
+  green: false
+  brown: false
+  black: false
+
+two:
+  white: false
+  gray: false
+  red: false
+  purple: false
+  blue: false
+  green: false
+  brown: false
+  black: false

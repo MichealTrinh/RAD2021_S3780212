@@ -236,3 +236,29 @@
   position: relative;
   width: 40%;
 }
+
+/* Filter */
+
+.filter-form-collections .fields{
+  display: flex;
+  justify-content: space-between;
+  flex-flow: wrap;
+  column-gap: 1em;
+  margin-bottom: 1em;
+}
+
+.filter-form-colors .fields {
+  display: flex;
+  justify-content: space-between;
+  flex-flow: wrap;
+  column-gap: 1em;
+}
+
+.filter-form-colors .field {
+  height: fit-content;
+}
+
+.filter-form-size .field {
+  display: flex;
+  column-gap: 1em;
+}
