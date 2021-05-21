@@ -1,6 +1,6 @@
 <div class="body">
   <div class="collectionToolbar">
-
+    <%= button_to "Filter", "/static_pages/filter", method: :get, class: "filterButton" %>
   </div>
   <% getAllProducts.each do |p| %>
     <div class="collectionProducts-item">

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'static_pages/help'
   get 'static_pages/menu'
   get 'static_pages/search'
+  get 'static_pages/filter'
 
   get 'collections/show'
 
