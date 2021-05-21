@@ -27,7 +27,7 @@
     <div class="cart-costs">
       <p class="cart-tax">taxes: $<%= price_dollars(@tax = (@subTotal / 11.11).round) %></p>
       <p class="cart-subTotal">sub-total: $<%= price_dollars(@subTotal) %></p>
-      <h2 class="cart-total">total: <%= price_dollars(@tax + @subTotal) %></h2>
+      <h2 class="cart-total">total: $<%= price_dollars(@tax + @subTotal) %></h2>
     </div>
     <%= button_to "Check out", checkout_path, method: :get %>
   <% else %>

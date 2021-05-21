@@ -76,6 +76,9 @@ Rails.application.configure do
 
   config.hosts << "321287e21986407e9dcd90e5394da748.vfs.cloud9.ap-southeast-2.amazonaws.com"
 
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :test
+  host = 'myapp.com' # local dev host instead
+  # For C9 IDE.
+  config.action_mailer.default_url_options = { host: host, protocol: 'https' }
 end

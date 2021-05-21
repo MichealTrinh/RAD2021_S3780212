@@ -22,13 +22,12 @@ class CartsController < ApplicationController
 
   # POST /carts or /carts.json
   def create
+    @cart = Cart.new(cart_params)
 
     if (!(session[:user_id]))
+      session[:cart_item] = @cart
       redirect_to "/login" and return
     else
-
-      @cart = Cart.new(cart_params)
-
       respond_to do |format|
         if @cart.save
           format.html { redirect_to @cart, notice: "Cart was successfully created." }

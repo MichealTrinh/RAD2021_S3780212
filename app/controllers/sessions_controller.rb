@@ -4,13 +4,18 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(username: params[:session][:username])
-
     if user
-      # Log the user in and redirect to the user's show page.
         log_in user
+
+        if(session[:cart_item])
+          @item = Cart.new(session[:cart_item])
+          @item.update(user_id: session[:user_id])
+          @item.save
+          session[:cart_item] = nil
+        end
+
         redirect_back_or user
     else
-      # create an error message.
       flash.now[:danger] = 'Invalid email/password combination'
       render 'new'
     end
@@ -25,8 +30,6 @@ class SessionsController < ApplicationController
     session[:user_id] = user.id
   end
 
-
-
   def log_out
     forget(current_user)
     session.delete(:user_id)
@@ -37,7 +40,6 @@ class SessionsController < ApplicationController
     redirect_to(session[:forwarding_url] || default)
     session.delete(:forwarding_url)
   end
-
 
   def forget(user)
     cookies.delete(:user_id)
