@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   post 'save_size', :to => 'static_pages#save_size'
   post 'save_collections', :to => 'static_pages#save_collections'
 
+  get 'incrementTimesSaved/:id', :to => 'application#incrementTimesSaved'
+
   get 'collections/show'
 
   get 'products/show'

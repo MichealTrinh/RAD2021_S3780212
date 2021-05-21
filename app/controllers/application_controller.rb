@@ -12,4 +12,10 @@ class ApplicationController < ActionController::Base
       @current_user ||= User.find_by(id: user_id)
     end
   end
+
+  def incrementTimesSaved
+    @product = Product.find_by(:id => params[:id].to_i)
+    @product.update(:timesSaved => (@product.timesSaved + 1))
+    redirect_to root_url
+  end
 end

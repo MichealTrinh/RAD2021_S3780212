@@ -1,14 +1,18 @@
 
 function save_product(name) {
+  var link = "";
   if (window.localStorage.getItem(name) != null) {
     window.localStorage.removeItem(name);
   } else {
     window.localStorage.setItem(name, name);
+    var item = name.split(/\s(.+)/);
+    link = "/incrementTimesSaved/" + item[0];
   }
   for (var i = 0; i < window.localStorage.length; i++) {
     console.log(i.toString() + " " + window.localStorage.getItem(window.localStorage.key(i)));
   }
-  window.location.href = ""
+
+  window.location.href = link;
 }
 
 window.addEventListener("load", () => {
