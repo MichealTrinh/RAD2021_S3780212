@@ -7,7 +7,7 @@
 <% @cart = Cart.new %>
 <div class="body">
   <div class="imageDisplay-section">
-    <% getAllImagesForProduct.each do |i| %>
+    <% getAllImagesForProduct(@product).each do |i| %>
       <%= image_tag "product_images/#{i.name}", class: "imageDisplay-image", :alt => i.alt %>
     <% end %>
   </div>

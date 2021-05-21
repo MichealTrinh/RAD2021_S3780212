@@ -27,6 +27,10 @@
       <% getPopularProducts(10).each do |p| %>
         <div class="popularProducts-item">
           <div class="popularProducts-img">
+            <% @image = getAllImagesForProduct(p).last %>
+            <% if @image %>
+              <%= image_tag "product_images/#{@image.name}", class: "image", :alt => @image.alt %>
+            <% end %>
             <button class="popularProducts-saveOverlay" save_product value="<%= p.id.to_s + ' ' + p.name %>"></button>
             <label id="<%= p.id %>PP" class='hidden'></label>
             <script>

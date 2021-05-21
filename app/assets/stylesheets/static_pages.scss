@@ -148,6 +148,7 @@
   border-color: darkslategray;
   padding: 2px 4px;
   left: 0;
+  top: 0;
 }
 
 /*Collections Section*/
@@ -202,6 +203,14 @@
   display: flex;
   height: 5em;
   margin-top: 1em;
+}
+
+.subscribe-form input{
+  position: relative;
+  background-color: transparent;
+  border: 0;
+  height: 100%;
+  width: 80%;
 }
 
 .subscribe-form #email_email {

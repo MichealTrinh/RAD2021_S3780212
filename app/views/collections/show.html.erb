@@ -8,6 +8,10 @@
       <% if (checkCollections(p) || params[:id].to_i != 0) %>
         <div class="collectionProducts-item">
           <div class="collectionProducts-img">
+            <% @image = getAllImagesForProduct(p).last %>
+            <% if @image %>
+              <%= image_tag "product_images/#{@image.name}", class: "image", :alt => @image.alt %>
+            <% end %>
             <button class="collectionProducts-saveOverlay" save_product value="<%= p.id.to_s + ' ' + p.name %>"></button>
             <label id="<%= p.id %><%=params[:id]%>CP" class='hidden'></label>
             <script>

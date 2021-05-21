@@ -38,5 +38,11 @@ Product.find(4).collections << Collection.find(3)
 
 User.create(:username => "RAD", :password => "Rails2021", :email => "rad2021rmit@gmail.com")
 
+Image.create(:name => "winter_vibes_1", :alt => "A winter jacket.", :product_id => 1)
+
 Image.create(:name => "black_knit_sweater_1", :alt => "A black knitted sweater.", :product_id => 2)
 Image.create(:name => "black_knit_sweater_2", :alt => "A knitted sweater made of black threads.", :product_id => 2)
+
+Image.create(:name => "skulls_sweater_1", :alt => "A black shirt with a skull.", :product_id => 3)
+
+Image.create(:name => "swag_sweater_1", :alt => "A swag sweater.", :product_id => 4)
