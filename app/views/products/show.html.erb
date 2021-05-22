@@ -7,9 +7,16 @@
 <% @cart = Cart.new %>
 <div class="body">
   <div class="imageDisplay-section">
+    <label id="<%= @product.id %>RP" class='hidden' style="z-index: 3;"></label>
+    <script>
+      if(checkSavedList('<%= @product.id.to_s + ' ' + @product.name %>')) {
+        displaySaveLabel("<%= @product.id %>RP", "randomProduct-saveLabel")
+      }
+    </script>
     <% getAllImagesForProduct(@product).each do |i| %>
       <%= image_tag "product_images/#{i.name}", class: "imageDisplay-image", :alt => i.alt %>
     <% end %>
+    <button class="saveButton" save_product value="<%= @product.id.to_s + ' ' + @product.name %>"><%= image_tag("icons/plus_icon.png", :alt => "Save", :class => "saveButton-icon") %></button>
   </div>
 
   <div class="productDetails-section">

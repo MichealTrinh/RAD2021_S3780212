@@ -81,10 +81,4 @@ class CartsController < ApplicationController
     def cart_params
       params.require(:cart).permit(:size, :color, :quantity, :product_id, :user_id)
     end
-
-    def logged_in_user
-      unless logged_in?
-        redirect_to users_url
-      end
-    end
 end

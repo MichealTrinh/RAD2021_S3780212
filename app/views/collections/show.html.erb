@@ -12,7 +12,8 @@
             <% if @image %>
               <%= image_tag "product_images/#{@image.name}", class: "image", :alt => @image.alt %>
             <% end %>
-            <button class="collectionProducts-saveOverlay" save_product value="<%= p.id.to_s + ' ' + p.name %>"></button>
+            <%= button_to "", "/products/#{p.id}", class: "collectionProducts-productOverlay", method: :get %>
+            <button class="saveButton" save_product value="<%= p.id.to_s + ' ' + p.name %>"><%= image_tag("icons/plus_icon.png", :alt => "Save", :class => "saveButton-icon") %></button>
             <label id="<%= p.id %><%=params[:id]%>CP" class='hidden'></label>
             <script>
               if(checkSavedList('<%= p.id.to_s + ' ' + p.name %>')) {

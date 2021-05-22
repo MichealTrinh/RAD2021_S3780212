@@ -28,13 +28,9 @@ Color.create(:white => true, :gray => true, :purple => true, :blue => true, :gre
 Size.create(:s => true, :m => true, :l => true, :xl => true, :xxl => true, :product_id => 4)
 
 Product.find(1).collections << Collection.find(2)
-# Product.find(1).collection << Collection.find(4)
 Product.find(2).collections << Collection.find(1)
-# Product.find(2).collection << Collection.find(4)
 Product.find(3).collections << Collection.find(3)
-# Product.find(3).collection << Collection.find(4)
 Product.find(4).collections << Collection.find(3)
-# Product.find(4).collection << Collection.find(4)
 
 User.create(:username => "RAD", :password => "Rails2021", :password_confirmation => "Rails2021" , :email => "rad2021rmit@gmail.com")
 

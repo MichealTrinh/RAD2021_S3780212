@@ -24,6 +24,7 @@
 }
 
 .collectionProducts-img {
+  position: relative;
   background-color: black;
   text-align: center;
   width: 100%;
@@ -46,7 +47,7 @@
   font-size: small;
 }
 
-.collectionProducts-saveOverlay {
+.collectionProducts-productOverlay {
   position: absolute;
   background-color: Transparent;
   background-repeat: no-repeat;

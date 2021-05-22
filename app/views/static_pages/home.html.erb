@@ -13,8 +13,8 @@
       <p><%= @product.description %></p>
       <p><%= "$" + price_dollars(@product.price).to_s %></p>
     </div>
-    <button class="randomProduct-saveOverlay" save_product value="<%= @product.id.to_s + ' ' + @product.name %>"></button>
-    <button class="saveButton" save_product value="<%= @product.name %>"><%= image_tag("icons/plus_icon.png", :alt => "Save", :class => "saveButton-icon") %></button>
+    <%= button_to "", "/products/#{@product.id}", class: "randomProduct-productOverlay", method: :get %>
+    <button class="randomProduct-saveButton" save_product value="<%= @product.id.to_s + ' ' + @product.name %>"><%= image_tag("icons/plus_icon.png", :alt => "Save", :class => "randomProduct-saveButton-icon") %></button>
   </div>
 
   <div class="popularProducts-section">
@@ -30,7 +30,8 @@
             <% if @image %>
               <%= image_tag "product_images/#{@image.name}", class: "image", :alt => @image.alt %>
             <% end %>
-            <button class="popularProducts-saveOverlay" save_product value="<%= p.id.to_s + ' ' + p.name %>"></button>
+            <%= button_to "", "/products/#{p.id}", class: "popularProducts-productOverlay", method: :get %>
+            <button class="saveButton" save_product value="<%= p.id.to_s + ' ' + p.name %>"><%= image_tag("icons/plus_icon.png", :alt => "Save", :class => "saveButton-icon") %></button>
             <label id="<%= p.id %>PP" class='hidden'></label>
             <script>
               if(checkSavedList('<%= p.id.to_s + ' ' + p.name %>')) {
