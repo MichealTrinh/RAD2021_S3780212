@@ -36,7 +36,7 @@ Product.find(3).collections << Collection.find(3)
 Product.find(4).collections << Collection.find(3)
 # Product.find(4).collection << Collection.find(4)
 
-User.create(:username => "RAD", :password => "Rails2021", :email => "rad2021rmit@gmail.com")
+User.create(:username => "RAD", :password => "Rails2021", :password_confirmation => "Rails2021" , :email => "rad2021rmit@gmail.com")
 
 Image.create(:name => "winter_vibes_1", :alt => "A winter jacket.", :product_id => 1)
 
