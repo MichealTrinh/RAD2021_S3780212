@@ -3,7 +3,9 @@
 one:
   name: MyString
   alt: MyText
+  product_id: 1
 
 two:
   name: MyString
   alt: MyText
+  product_id: 1

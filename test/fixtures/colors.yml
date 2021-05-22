@@ -9,6 +9,7 @@ one:
   green: false
   brown: false
   black: false
+  product_id: 1
 
 two:
   white: false
@@ -19,3 +20,4 @@ two:
   green: false
   brown: false
   black: false
+  product_id: 1
