@@ -12,14 +12,16 @@ module CollectionsHelper
   end
 
   def checkCollections(product)
-    product.collections.each do |c|
-      puts session['filterCollections'].to_s
-      session['filterCollections'].each do |f|
-        if c.name ===  f
-          puts c.name
-          puts f
-          puts "pass ----------"
-          return true
+    if session['filterCollections']
+      product.collections.each do |c|
+        puts session['filterCollections'].to_s
+        session['filterCollections'].each do |f|
+          if c.name ===  f
+            puts c.name
+            puts f
+            puts "pass ----------"
+            return true
+          end
         end
       end
     end
