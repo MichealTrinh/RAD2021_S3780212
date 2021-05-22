@@ -6,6 +6,7 @@ one:
   l: false
   xl: false
   xxl: false
+  product_id: 1
 
 two:
   s: false
@@ -13,3 +14,4 @@ two:
   l: false
   xl: false
   xxl: false
+  product_id: 1
