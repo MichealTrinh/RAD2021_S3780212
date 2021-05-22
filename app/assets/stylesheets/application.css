@@ -93,7 +93,7 @@ a:hover {
   position: relative;
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: 100vw;
   height: 1.5em;
   border: 0;
 }
@@ -175,7 +175,7 @@ a:hover {
   display: flex;
   justify-content: space-between;
   width: 6em;
-  margin-right: 0.5em;
+  margin-right: 2em;
   right: 0;
 }
 

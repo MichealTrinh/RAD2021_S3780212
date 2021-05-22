@@ -31,6 +31,7 @@ window.addEventListener("load", () => {
 
 function clear_storage() {
   window.localStorage.clear();
+  window.location.href = "/";
 }
 
 window.addEventListener("load", () => {
