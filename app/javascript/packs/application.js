@@ -12,4 +12,3 @@ Turbolinks.start()
 ActiveStorage.start()
 
 require("src/functions.js");
-require("src/overlayFunctions.js");
