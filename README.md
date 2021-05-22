@@ -1,4 +1,5 @@
 Micheal Trinh, S3780212
+
 80+
 
 	Date	2021-05-22
@@ -9,7 +10,7 @@ Micheal Trinh, S3780212
 https://gentle-ocean-91057.herokuapp.com/
 
 Build Log:
-
+```
 -----> Building on the Heroku-20 stack
 -----> Using buildpack: heroku/ruby
 -----> Ruby app detected
@@ -184,7 +185,7 @@ Build Log:
 -----> Launching...
        Released v20
        https://gentle-ocean-91057.herokuapp.com/ deployed to Heroku
-
+```
 
 
 Using:
