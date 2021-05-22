@@ -1,9 +1,8 @@
 class UserMailer < ApplicationMailer
   default from: 'notifications@example.com'
 
-  def test_email
+  def subscribed_email
     @email = params[:email]
-    @url  = 'http://example.com/login'
-    mail(to: @email, subject: 'Test email from RAD Assignment')
+    mail to: @email, subject: 'Subscription for Emails'
   end
 end

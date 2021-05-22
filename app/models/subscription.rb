@@ -5,7 +5,7 @@ class Subscription < ApplicationRecord
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX}, length: { maximum: 100 }, uniqueness: { case_sensitive: false }
 
   def emailSubscribed
-    @email = Subscription.last
-    UserMailer.with(email: @email).test_email.deliver_now
+    @email = Subscription.last.email
+    UserMailer.with(email: @email).subscribed_email.deliver_now
   end
 end
