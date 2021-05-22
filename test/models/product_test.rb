@@ -19,7 +19,7 @@ class ProductTest < ActiveSupport::TestCase
   end
 
   test "name should not be longer than 100 characters" do
-    @product.name = "x" * 100 + "Test Product"
+    @product.name = "x" * 101
     assert_not @product.valid?
   end
 
@@ -30,7 +30,7 @@ class ProductTest < ActiveSupport::TestCase
   end
 
   test "description should not be longer than 255 characters" do
-    @product.description = "x" * 255 + "A test product."
+    @product.description = "x" * 256
     assert_not @product.valid?
   end
 
