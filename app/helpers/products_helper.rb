@@ -8,7 +8,7 @@ module ProductsHelper
   end
 
   def getRandomProduct
-    Product.find(rand(1..Product.all.count))
+    Product.find_by(:id => rand(1..Product.all.count))
   end
 
   def getPopularProducts(amount)
