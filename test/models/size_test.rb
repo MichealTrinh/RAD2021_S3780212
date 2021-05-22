@@ -11,4 +11,10 @@ class SizeTest < ActiveSupport::TestCase
   test "should be valid" do
     assert @size.valid?
   end
+
+  # tests for product_id field
+  test "product_id should be present" do
+    @size.product_id = nil
+    assert_not @size.valid?
+  end
 end
