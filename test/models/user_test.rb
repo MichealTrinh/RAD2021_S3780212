@@ -5,7 +5,7 @@ class UserTest < ActiveSupport::TestCase
   #   assert true
   # end
   def setup
-    @user = User.new(username: "Test User", password: "TestUser", email: "user@myapp.com")
+    @user = User.new(username: "Test User", password: "TestUser", password_confirmation: "TestUser", email: "user@myapp.com")
   end
 
   test "should be valid" do
@@ -25,17 +25,17 @@ class UserTest < ActiveSupport::TestCase
 
   # tests for password field
   test "password should be present" do
-    @user.password = " "
+    @user.password = @user.password_confirmation = " "
     assert_not @user.valid?
   end
 
   test "password should not be shorter than 8 characters" do
-    @user.password = "x" * 7
+    @user.password = @user.password_confirmation = "x" * 7
     assert_not @user.valid?
   end
 
   test "password should not be longer than 20 characters" do
-    @user.password = "x" * 21
+    @user.password = @user.password_confirmation = "x" * 21
     assert_not @user.valid?
   end
 
