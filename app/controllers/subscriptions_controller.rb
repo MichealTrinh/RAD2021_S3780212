@@ -68,10 +68,10 @@ class SubscriptionsController < ApplicationController
     @current_user = current_user
     if !Subscription.exists?(user_id: @current_user.id)
       Subscription.create(email: @current_user.email, user_id: @current_user.id )
-      head :no_content
+      redirect_to root_url
     else
       Subscription.destroy(Subscription.find_by(:user_id => @current_user.id).id)
-      head :no_content
+      redirect_to root_url
     end
 
   end
