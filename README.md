@@ -1,12 +1,12 @@
+## Team
 Micheal Trinh, S3780212
-
+## Heighest Level
 80+
-
+## Timesheets
 	Date	2021-05-22
 	
 ![image](https://user-images.githubusercontent.com/48667610/119241696-c129d000-bb9b-11eb-8bec-2b4e2f6ea6d6.png)
-
-
+## Heroku Deployment Url and Deployment Log
 https://gentle-ocean-91057.herokuapp.com/
 
 Build Log:
@@ -186,15 +186,7 @@ Build Log:
        Released v20
        https://gentle-ocean-91057.herokuapp.com/ deployed to Heroku
 ```
+## Git Repository
+Name: RAD2021_S3780212
 
-
-Using:
- - rvm 1.29.12
- - Ruby 3.0.0p0
- - Rails 6.1.3.2
-
-To deploy app:
- - go to the app's directory and run $ git push heroku master.
- - Then run $ heroku run rails db:migrate to update the db schema.
- - Then run $ heroku run rails db:seed to add the db data.
- - Go to https://gentle-ocean-91057.herokuapp.com/ to view the deployed app.
+Location: https://github.com/s3780212/RAD2021_S3780212.git
