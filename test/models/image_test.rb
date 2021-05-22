@@ -28,4 +28,10 @@ class ImageTest < ActiveSupport::TestCase
     @image.alt = "x" * 256
     assert_not @image.valid?
   end
+
+  # tests for product_id field
+  test "product_id should be present" do
+    @image.product_id = nil
+    assert_not @image.valid?
+  end
 end
