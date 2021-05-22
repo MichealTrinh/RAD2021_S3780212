@@ -12,3 +12,7 @@ Using:
  - rvm 1.29.12
  - Ruby 3.0.0p0
  - Rails 6.1.3.2
+
+To deploy app run $ git push heroku master in the app's directory.
+Then run $ heroku run rails db:migrate to update the db schema.
+Then run $ heroku run rails db:seed to add the db data.
